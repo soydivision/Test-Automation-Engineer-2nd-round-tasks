@@ -1,4 +1,7 @@
 public class Student {
- String name; String surname;
- int age;
+    String name;
+    String surName;
+    int age;
+    //Группа
+    //Оценки
 }
