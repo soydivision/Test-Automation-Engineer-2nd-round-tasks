@@ -1,4 +1,4 @@
-package subjectenum;
+package subjects;
 
 public enum Subjects {
 }
