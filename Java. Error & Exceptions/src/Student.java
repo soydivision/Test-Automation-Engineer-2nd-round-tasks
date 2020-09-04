@@ -1,4 +1,4 @@
-import subjectenum.Subjects;
+import subjects.*;
 
 public class Student {
     private String name;
@@ -16,8 +16,6 @@ public class Student {
     public String getSurName() {
         return surName;
     }
-    //Группа
-    //Оценки
 
     @Override
     public String toString() {
