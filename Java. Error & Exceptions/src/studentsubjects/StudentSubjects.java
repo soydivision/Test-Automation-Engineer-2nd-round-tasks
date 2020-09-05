@@ -1,6 +1,6 @@
-package subjects;
+package studentsubjects;
 
-public enum Subjects {
+public enum StudentSubjects {
     LAW,
     MATH,
     GENERAL_MATH,
@@ -23,7 +23,7 @@ public enum Subjects {
     QUANTUM_CHEMISTRY;
     private String name;
 
-    Subjects(String name) {
+    StudentSubjects(String name) {
         this.name = name;
     }
 
@@ -36,4 +36,5 @@ public enum Subjects {
         return getName();
     }
 }
+
 

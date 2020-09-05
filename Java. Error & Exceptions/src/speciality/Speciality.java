@@ -1,6 +1,6 @@
 package speciality;
 
-abstract class Speciality {
+public abstract class Speciality {
     private String speciality;
 
     public Speciality(String speciality) {
