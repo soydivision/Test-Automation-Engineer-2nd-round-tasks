@@ -1,3 +1,4 @@
+import exceptions.StudentHasNoSubjectsException;
 import speciality.*;
 import studentsubjects.*;
 
@@ -59,9 +60,22 @@ public class Student {
     }
 
     public boolean isSubjectPresent(Enum<?> subject) {
+        List<StudentSubjects> subjectsList = speciality.getCourse();
+        return subjectsList.contains(subject);
     }
 
     public int getSubjectMark(Enum<?> subject) {
+        if (!isSubjectPresent(subject)) {
+            throw new StudentHasNoSubjectsException();
+        }
+        int score = 0;
+        for (SubjectScore thisSubjectScore : subjectScores) {
+            if (thisSubjectScore.getSubject() == subject) {
+                score = thisSubjectScore.getMark();
+                break;
+            }
+        }
+        return score;
     }
 
     @Override
