@@ -4,7 +4,7 @@ public enum StudentSubjects {
     LAW,
     MATH,
     GENERAL_MATH,
-    GENERAL_PHYSICX,
+    GENERAL_PHYSICS,
     HIGHER_ALGEBRA,
     GROUP_THEORY,
     INTERNATIONAL_LAW,
@@ -20,7 +20,14 @@ public enum StudentSubjects {
     ORGANIC_CHEMISTRY,
     NON_ORGANIC_CHEMISTRY,
     ANALYTICAL_CHEMISTRY,
-    QUANTUM_CHEMISTRY;
+    QUANTUM_CHEMISTRY,
+    KINEMATICS,
+    FORCES,
+    GRAVITY,
+    NEWTON_LAWS,
+    ENERGY_AND_WORK,
+    OPTICS,
+    FLUID_DYNAMICS;
     private String name;
 
     StudentSubjects(String name) {

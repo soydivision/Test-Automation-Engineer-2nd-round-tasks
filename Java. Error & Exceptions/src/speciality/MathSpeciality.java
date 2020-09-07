@@ -7,8 +7,11 @@ import java.util.List;
 
 public class MathSpeciality extends Speciality {
     public static final String SPECIALITY = "math";
-    private List<StudentSubjects> mathCourse = Arrays.asList(StudentSubjects.HIGHER_ALGEBRA,
-            StudentSubjects.LINEAR_ALGEBRA, StudentSubjects.DIFF_GEOMETRY, StudentSubjects.GENERAL_MATH);
+    private List<StudentSubjects> mathCourse = Arrays.asList(
+            StudentSubjects.HIGHER_ALGEBRA,
+            StudentSubjects.LINEAR_ALGEBRA,
+            StudentSubjects.DIFF_GEOMETRY,
+            StudentSubjects.GENERAL_MATH);
 
     public MathSpeciality() {
         super(SPECIALITY);
