@@ -1,8 +1,7 @@
 import exceptions.StudentHasNoSubjectsException;
-import speciality.*;
-import studentsubjects.*;
+import speciality.Speciality;
+import subjects.Subjects;
 
-import javax.security.auth.Subject;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +43,7 @@ public class Student {
 
     public List<SubjectScore> coreCourse() {
         List<SubjectScore> subjectScoresList = new ArrayList<>();
-        for (StudentSubjects studentSubject : speciality.getCourse()) {
+        for (Subjects studentSubject : speciality.getCourse()) {
             subjectScoresList.add(new SubjectScore(studentSubject, 7));
         }
         return subjectScoresList;
@@ -59,13 +58,13 @@ public class Student {
         return (double) sumOfMarks / numberOfMarks;
     }
 
-    public boolean isSubjectPresent(Enum<?> subject) {
-        List<StudentSubjects> subjectsList = speciality.getCourse();
+    public boolean studentHasSubject(Enum<?> subject) {
+        List<Subjects> subjectsList = speciality.getCourse();
         return subjectsList.contains(subject);
     }
 
     public int getSubjectMark(Enum<?> subject) {
-        if (!isSubjectPresent(subject)) {
+        if (!studentHasSubject(subject)) {
             throw new StudentHasNoSubjectsException();
         }
         int score = 0;

@@ -4,7 +4,7 @@ public class Faculty {
     private String name;
     private List<StudentGroup> studentGroupList;
 
-    public Faculty {
+    public Faculty() {
     }
 
     public Faculty(String name) {
@@ -16,13 +16,27 @@ public class Faculty {
         setStudentGroups();
     }
 
-    public void getFacultyName() {
+    public String getFacultyName() {
+        return name;
     }
 
-    public void setFacultyName() {
+    public void setFacultyName(String facultyName) {
+        this.name = facultyName;
     }
 
-    public void getStudentGroups() {
+    public List<StudentGroup> getStudentGroups() {
+        return studentGroupList;
+    }
+
+    public void setStudentGroupList(List<StudentGroup> studentGroupList) {
+        this.studentGroupList = studentGroupList;
+    }
+
+    public boolean checkSubjectInFaculty() {
+        boolean facultyHasSubject = false;
+        for (StudentGroup group:studentGroupList){
+            if (group.)
+        }
     }
 
     public void setStudentGroups() {

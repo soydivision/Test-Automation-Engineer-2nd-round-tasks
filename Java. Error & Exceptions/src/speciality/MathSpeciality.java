@@ -1,24 +1,24 @@
 package speciality;
 
-import studentsubjects.StudentSubjects;
+import subjects.Subjects;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class MathSpeciality extends Speciality {
     public static final String SPECIALITY = "math";
-    private List<StudentSubjects> mathCourse = Arrays.asList(
-            StudentSubjects.HIGHER_ALGEBRA,
-            StudentSubjects.LINEAR_ALGEBRA,
-            StudentSubjects.DIFF_GEOMETRY,
-            StudentSubjects.GENERAL_MATH);
+    private List<Subjects> mathCourse = Arrays.asList(
+            Subjects.HIGHER_ALGEBRA,
+            Subjects.LINEAR_ALGEBRA,
+            Subjects.DIFF_GEOMETRY,
+            Subjects.GENERAL_MATH);
 
     public MathSpeciality() {
         super(SPECIALITY);
     }
 
     @Override
-    public List<StudentSubjects> getCourse() {
+    public List<Subjects> getCourse() {
         return mathCourse;
     }
 }

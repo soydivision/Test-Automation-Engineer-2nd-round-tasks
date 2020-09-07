@@ -1,6 +1,6 @@
 package speciality;
 
-import studentsubjects.*;
+import subjects.*;
 
 import java.util.List;
 
@@ -19,5 +19,5 @@ public abstract class Speciality {
         this.speciality = speciality;
     }
 
-    public abstract List<StudentSubjects> getCourse();
+    public abstract List<Subjects> getCourse();
 }

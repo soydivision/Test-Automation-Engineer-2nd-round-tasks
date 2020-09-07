@@ -1,6 +1,6 @@
-package studentsubjects;
+package subjects;
 
-public enum StudentSubjects {
+public enum Subjects {
     LAW,
     MATH,
     GENERAL_MATH,
@@ -30,7 +30,7 @@ public enum StudentSubjects {
     FLUID_DYNAMICS;
     private String name;
 
-    StudentSubjects(String name) {
+    Subjects(String name) {
         this.name = name;
     }
 

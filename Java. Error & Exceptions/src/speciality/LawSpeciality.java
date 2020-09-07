@@ -1,17 +1,17 @@
 package speciality;
 
-import studentsubjects.*;
+import subjects.*;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class LawSpeciality extends Speciality {
     public static final String SPECIALITY = "law";
-    private List<StudentSubjects> lawCourse = Arrays.asList(
-            StudentSubjects.INTERNATIONAL_LAW,
-            StudentSubjects.LAW_HISTORY,
-            StudentSubjects.LAW,
-            StudentSubjects.STATE_THEORY)
+    private List<Subjects> lawCourse = Arrays.asList(
+            Subjects.INTERNATIONAL_LAW,
+            Subjects.LAW_HISTORY,
+            Subjects.LAW,
+            Subjects.STATE_THEORY)
 }
 
     public LawSpeciality() {
@@ -19,7 +19,7 @@ public class LawSpeciality extends Speciality {
     }
 
     @Override
-    public List<StudentSubjects> getCourse() {
+    public List<Subjects> getCourse() {
         return lawCourse;
     }
 }

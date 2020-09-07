@@ -1,18 +1,17 @@
 package speciality;
 
-import studentsubjects.*;
+import subjects.*;
 
-import javax.security.auth.Subject;
 import java.util.Arrays;
 import java.util.List;
 
 public class PhysicxSpeciality extends Speciality {
     public static final String SPECIALITY = "Physics";
-    List<StudentSubjects> physicsCourse = Arrays.asList(
-            StudentSubjects.ENERGY_AND_WORK,
-            StudentSubjects.GRAVITY,
-            StudentSubjects.NEWTON_LAWS,
-            StudentSubjects.KINEMATICS
+    List<Subjects> physicsCourse = Arrays.asList(
+            Subjects.ENERGY_AND_WORK,
+            Subjects.GRAVITY,
+            Subjects.NEWTON_LAWS,
+            Subjects.KINEMATICS
     )
 
     public PhysicxSpeciality() {
@@ -20,7 +19,7 @@ public class PhysicxSpeciality extends Speciality {
     }
 
     @Override
-    public List<StudentSubjects> getCourse() {
+    public List<Subjects> getCourse() {
         return null;
     }
 }
