@@ -1,17 +1,17 @@
 import java.util.List;
 
-public class StudentGroup {
+public class Group {
     private String name;
     private List<Student> listOfStudents;
 
-    public StudentGroup() {
+    public Group() {
     }
 
-    public StudentGroup(String name) {
+    public Group(String name) {
         this.name = name;
     }
 
-    public StudentGroup(String name, List<Student> listOfStudents) {
+    public Group(String name, List<Student> listOfStudents) {
         this.name = name;
     }
 

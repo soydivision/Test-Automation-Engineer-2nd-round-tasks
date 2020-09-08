@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Faculty {
     private String name;
-    private List<StudentGroup> studentGroupList;
+    private List<Group> studentGroupList;
 
     public Faculty() {
     }
@@ -11,9 +11,9 @@ public class Faculty {
         this.name = name;
     }
 
-    public Faculty(String name, List<StudentGroup> studentGroupList) {
+    public Faculty(String name, List<Group> studentGroupList) {
         this.name = name;
-        setStudentGroups();
+        setStudentGroupList(studentGroupList);
     }
 
     public String getFacultyName() {
@@ -24,21 +24,26 @@ public class Faculty {
         this.name = facultyName;
     }
 
-    public List<StudentGroup> getStudentGroups() {
+    public List<Group> getStudentGroups() {
         return studentGroupList;
     }
 
-    public void setStudentGroupList(List<StudentGroup> studentGroupList) {
+    public void setStudentGroupList(List<Group> studentGroupList) {
         this.studentGroupList = studentGroupList;
     }
 
-    public boolean checkSubjectInFaculty() {
+    public boolean facultyHasSubject(Enum<?> subject) {
         boolean facultyHasSubject = false;
-        for (StudentGroup group:studentGroupList){
-            if (group.)
+        for (Group group : studentGroupList) {
+            if (group.groupHasSubject(subject)) {
+                facultyHasSubject = true;
+            }
+            return facultyHasSubject;
         }
     }
 
-    public void setStudentGroups() {
+    public double getAverageMarkForSubjectWithinFaculty(Enum<?> subject) {
+        double markSumm = 0;
+        int groupHasSubject = 0;
     }
 }
