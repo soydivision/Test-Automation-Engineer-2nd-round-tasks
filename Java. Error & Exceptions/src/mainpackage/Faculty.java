@@ -1,3 +1,6 @@
+package mainpackage;
+
+
 import java.util.List;
 
 public class Faculty {

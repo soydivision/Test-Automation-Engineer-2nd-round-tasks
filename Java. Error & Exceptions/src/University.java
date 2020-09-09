@@ -7,6 +7,9 @@ public class University {
     public University() {
     }
 
+    public University(String name, List<Faculty> faculties) {
+    }
+
     public String getName() {
         return name;
     }
