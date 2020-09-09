@@ -1,3 +1,4 @@
+package mainpackage;
 import exceptions.StudentHasNoSubjectsException;
 import speciality.Speciality;
 import subjects.Subjects;

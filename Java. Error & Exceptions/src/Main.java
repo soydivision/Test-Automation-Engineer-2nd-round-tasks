@@ -1,5 +1,6 @@
 import subjects.*;
 import speciality.*;
+import mainpackage.*;
 
 import java.util.Arrays;
 

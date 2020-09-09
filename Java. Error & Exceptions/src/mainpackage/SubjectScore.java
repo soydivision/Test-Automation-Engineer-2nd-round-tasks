@@ -1,3 +1,4 @@
+package mainpackage;
 
 public class SubjectScore {
     private Enum subject;

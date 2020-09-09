@@ -1,6 +1,6 @@
 package mainpackage;
 
-
+import speciality.*;
 import java.util.List;
 
 public class Faculty {
