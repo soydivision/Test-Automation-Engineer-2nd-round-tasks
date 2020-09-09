@@ -38,4 +38,21 @@ public class Group {
         }
         return groupHasSubject;
     }
+
+    public double getAverageMarkForSubject(Enum<?> subject) {
+        double markSumm = 0;
+        int markNumber = 0;
+        for (Student student : listOfStudents) {
+            if (student.studentHasSubject(subject)) {
+                markSumm += student.getSubjectMark(subject);
+                markNumber++;
+            }
+        }
+        return markSumm / markNumber;
+    }
+
+    @Override
+    public String toString() {
+        return " Group is : " + name + " list of students " + listOfStudents;
+    }
 }
