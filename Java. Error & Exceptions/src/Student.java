@@ -16,6 +16,13 @@ public class Student {
         this.surName = surName;
     }
 
+    public Student(String name, String surName, Speciality speciality) {
+        this.name = name;
+        this.surName = surName;
+        this.speciality = speciality;
+        subjectScores = coreCourse();
+    }
+
     public String getName() {
         return name;
     }
