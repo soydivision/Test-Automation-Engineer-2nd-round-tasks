@@ -12,7 +12,7 @@ public class PhysicxSpeciality extends Speciality {
             Subjects.GRAVITY,
             Subjects.NEWTON_LAWS,
             Subjects.KINEMATICS
-    )
+    );
 
     public PhysicxSpeciality() {
         super(SPECIALITY);

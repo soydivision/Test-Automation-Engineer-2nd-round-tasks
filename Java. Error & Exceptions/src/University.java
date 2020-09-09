@@ -25,6 +25,6 @@ public class University {
 
     @Override
     public String toString() {
-        return "University is" + name + "faculties" + faculties;
+        return "University is " + name + "faculties " + faculties;
     }
 }

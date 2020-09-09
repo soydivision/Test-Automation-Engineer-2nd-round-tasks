@@ -38,8 +38,8 @@ public class Faculty {
             if (group.groupHasSubject(subject)) {
                 facultyHasSubject = true;
             }
-            return facultyHasSubject;
         }
+        return facultyHasSubject;
     }
 
     public double getAverageMarkForSubjectWithinFaculty(Enum<?> subject) {
@@ -47,7 +47,7 @@ public class Faculty {
         int groupHasSubject = 0;
         for (Group group : studentGroupList) {
             if (group.groupHasSubject(subject)) {
-                markSumm += group.getAverageMarkForSubject();
+                markSumm += group.getAverageMarkForSubject(subject);
                 groupHasSubject++;
             }
         }
@@ -55,7 +55,7 @@ public class Faculty {
     }
 
     @Override
-    public String toSting() {
+    public String toString() {
         return "Faculty is " + name + ",Groups are" + studentGroupList;
     }
 }

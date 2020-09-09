@@ -28,20 +28,19 @@ public enum Subjects {
     ENERGY_AND_WORK,
     OPTICS,
     FLUID_DYNAMICS;
-    private String name;
-
-    Subjects(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public String toString() {
-        return getName();
-    }
+//    private String name;
+//    Subjects(String name) {
+//        this.name = name;
+//    }
+//
+//    public String getName() {
+//        return name;
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return getName();
+//    }
 }
 
 

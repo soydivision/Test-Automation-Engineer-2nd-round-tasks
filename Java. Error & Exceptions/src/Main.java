@@ -9,5 +9,8 @@ public class Main {
                 new Student("Vaska", "Pupkin", new MathSpeciality())));
         Faculty FizMat = new Faculty("Fizmat", Arrays.asList(mathG));
         University Stanford = new University();
+        System.out.println(mathG);
+        System.out.println(FizMat);
+        System.out.println(Stanford);
     }
 }

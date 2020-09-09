@@ -11,8 +11,7 @@ public class LawSpeciality extends Speciality {
             Subjects.INTERNATIONAL_LAW,
             Subjects.LAW_HISTORY,
             Subjects.LAW,
-            Subjects.STATE_THEORY)
-}
+            Subjects.STATE_THEORY);
 
     public LawSpeciality() {
         super(SPECIALITY);
