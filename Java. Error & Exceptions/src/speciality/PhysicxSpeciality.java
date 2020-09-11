@@ -20,6 +20,6 @@ public class PhysicxSpeciality extends Speciality {
 
     @Override
     public List<Subjects> getCourse() {
-        return null;
+        return physicsCourse;
     }
 }
