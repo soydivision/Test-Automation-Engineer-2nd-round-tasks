@@ -1,4 +1,5 @@
 package mainpackage;
+
 import java.util.List;
 
 public class University {
@@ -9,6 +10,8 @@ public class University {
     }
 
     public University(String name, List<Faculty> faculties) {
+        this.name = name;
+        setFaculties(faculties);
     }
 
     public String getName() {
@@ -29,6 +32,6 @@ public class University {
 
     @Override
     public String toString() {
-        return "University is " + name + "faculties " + faculties;
+        return "University is " + name + ",faculties are" + faculties;
     }
 }

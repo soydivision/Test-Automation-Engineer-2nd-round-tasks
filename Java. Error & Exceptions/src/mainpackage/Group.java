@@ -1,6 +1,6 @@
 package mainpackage;
-import java.util.List;
 
+import java.util.List;
 
 public class Group {
     private String name;
@@ -15,6 +15,7 @@ public class Group {
 
     public Group(String name, List<Student> listOfStudents) {
         this.name = name;
+        setListOfStudents(listOfStudents);
     }
 
     public String getName() {
