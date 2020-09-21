@@ -1,18 +1,25 @@
 import java.io.File;
-import java.lang.reflect.Array;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Main {
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException {
+        //Решить вопрос если будет файл а не папка
+        //Если папка то надо сделать что бы сразу создавался файл txt с названием папки вверху
         File file = new File("C:\\Users\\PC\\Desktop\\Torrent");
+        String datalogger = file.getPath() + "\\datalogger.txt";
         listFilesTree(file, file);
-
+        WriteFile data = new WriteFile(datalogger);
+        data.writeToFile(file.getName());
     }
 
-    public static void listFilesTree(File directoryWithFiles, File parent) {
+    public static void listFilesTree(File directoryWithFiles, File parent) throws IOException {
         String space = generateFourSpaces(howDeepIsYourPath(directoryWithFiles, parent));
+        String datalogger = parent.getPath() + "\\datalogger.txt";
         if (howDeepIsYourPath(directoryWithFiles, parent) == 0) {
             System.out.println(directoryWithFiles.getName());
         } else if (directoryWithFiles.isDirectory()) {
@@ -37,12 +44,12 @@ public class Main {
         int depth;
         Path parentPath = Paths.get(parentDirectory.toURI());
         Path childPath = Paths.get(childDirectory.toURI());
-        depth = childPath.getNameCount() - parentPath.getNameCount();
-        return Math.abs(depth);
+        depth = parentPath.getNameCount() - childPath.getNameCount();
+        return depth;
     }
 
     public static String generateFourSpaces(int length) {
-        String shift = "";
+//        String shift;
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < length; i++) {
             stringBuilder.append("    ");
