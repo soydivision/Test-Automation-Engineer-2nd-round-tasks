@@ -8,9 +8,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String args[]) throws IOException {
-        //Решить вопрос если будет файл а не папка
-        //Если папка то надо сделать что бы сразу создавался файл txt с названием папки вверху
-        File file = new File("C:\\Users\\PC\\Desktop\\Torrent");
+        File file = new File("C:\\Users\\PC\\Desktop\\Python");
         FileInput fileInput = new FileInput();
         fileInput.readFile(file.getPath());
     }
