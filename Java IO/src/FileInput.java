@@ -7,6 +7,9 @@ public class FileInput {
         if (file.isDirectory()) {
             FolderProcessor folderProcessor = new FolderProcessor();
             folderProcessor.listFilesTree(file, file);
+        } else  {
+            //Добавить проверку txt
+            System.out.println("need file processor");
         }
     }
 }
