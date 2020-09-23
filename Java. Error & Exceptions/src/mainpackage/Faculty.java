@@ -1,11 +1,13 @@
 package mainpackage;
 
+import exceptions.*;
 import speciality.*;
+
 import java.util.List;
 
 public class Faculty {
     private String name;
-    private List<Group> studentGroupList;
+    private List<Group> GroupList;
 
     public Faculty() {
     }
@@ -16,7 +18,7 @@ public class Faculty {
 
     public Faculty(String name, List<Group> studentGroupList) {
         this.name = name;
-        setStudentGroupList(studentGroupList);
+        setGroupList(studentGroupList);
     }
 
     public String getFacultyName() {
@@ -28,16 +30,17 @@ public class Faculty {
     }
 
     public List<Group> getStudentGroups() {
-        return studentGroupList;
+        return GroupList;
     }
 
-    public void setStudentGroupList(List<Group> studentGroupList) {
-        this.studentGroupList = studentGroupList;
+    public void setGroupList(List<Group> GroupList) {
+        if (GroupList.isEmpty()) throw new EmptyFacultyException("Faculty is empty");
+        this.GroupList = GroupList;
     }
 
     public boolean facultyHasSubject(Enum<?> subject) {
         boolean facultyHasSubject = false;
-        for (Group group : studentGroupList) {
+        for (Group group : GroupList) {
             if (group.groupHasSubject(subject)) {
                 facultyHasSubject = true;
             }
@@ -46,19 +49,21 @@ public class Faculty {
     }
 
     public double getAverageMarkForSubjectWithinFaculty(Enum<?> subject) {
-        double markSumm = 0;
+        double summOfMarks = 0;
         int groupHasSubject = 0;
-        for (Group group : studentGroupList) {
+        for (Group group : GroupList) {
             if (group.groupHasSubject(subject)) {
-                markSumm += group.getAverageMarkForSubject(subject);
+                summOfMarks += group.getAverageMarkForSubject(subject);
                 groupHasSubject++;
             }
         }
-        return markSumm / groupHasSubject;
+        if (summOfMarks == 0 && groupHasSubject == 0)
+            throw new StudentHasNoSubjectsException("No one at the faculty has this subject");
+        return summOfMarks / groupHasSubject;
     }
 
     @Override
     public String toString() {
-        return "Faculty is " + name + ",Groups are" + studentGroupList;
+        return System.lineSeparator() + "Faculty: " + name + ", Groups: " + GroupList + System.lineSeparator();
     }
 }

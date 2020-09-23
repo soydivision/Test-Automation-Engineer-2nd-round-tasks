@@ -32,6 +32,6 @@ public class University {
 
     @Override
     public String toString() {
-        return "University is " + name + ",faculties are" + faculties;
+        return "University: " + name + " ,faculties:" + faculties + System.lineSeparator();
     }
 }

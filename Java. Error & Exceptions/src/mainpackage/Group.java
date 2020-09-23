@@ -56,6 +56,6 @@ public class Group {
 
     @Override
     public String toString() {
-        return " Group is : " + name + " list of students " + listOfStudents;
+        return " Group: " + name + System.lineSeparator() + " ,students: " + listOfStudents + System.lineSeparator();
     }
 }

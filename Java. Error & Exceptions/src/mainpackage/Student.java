@@ -1,4 +1,5 @@
 package mainpackage;
+
 import exceptions.StudentHasNoSubjectsException;
 import speciality.Speciality;
 import subjects.Subjects;
@@ -87,6 +88,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student: " + name + " " + surName;
+        return name + " " + surName;
     }
 }
