@@ -1,7 +1,6 @@
 package mainpackage;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-import exceptions.NoSubjectsException;
+import exceptions.NoSuchSubjectsException;
 import speciality.Speciality;
 import subjects.Subjects;
 
@@ -40,7 +39,7 @@ public class Student {
     }
 
     public void setSubjectMarks(List<SubjectMark> subjectMarks) {
-        if (subjectMarks.isEmpty()) throw new NoSubjectsException("This student has no subjects");
+        if (subjectMarks.isEmpty()) throw new NoSuchSubjectsException("This student has no subjects");
         this.subjectMarks = subjectMarks;
     }
 
@@ -63,10 +62,8 @@ public class Student {
     public double getAverageMarkForAllSubjects() {
         int sumOfMarks = 0;
         int numberOfMarks = subjectMarks.size();
-        System.out.println("numberOfMarks " + numberOfMarks);
         for (SubjectMark subjectMark : subjectMarks) {
             sumOfMarks += subjectMark.getMark();
-
         }
         return (double) sumOfMarks / numberOfMarks;
     }
@@ -78,13 +75,12 @@ public class Student {
 
     public int getSubjectMark(Enum<?> subject) {
         if (!studentHasSubject(subject)) {
-            throw new NoSubjectsException();
+            throw new NoSuchSubjectsException("Student " + name + " has no such" + subject.name() + " subject ");
         }
         int mark = 0;
-        for (SubjectMark thisSubjectMark : subjectMarks) {
-            if (thisSubjectMark.getSubject() == subject) {
-                mark = thisSubjectMark.getMark();
-                break;
+        for (SubjectMark subjectMark : subjectMarks) {
+            if (subjectMark.getSubject() == subject) {
+                mark = subjectMark.getMark();
             }
         }
         return mark;

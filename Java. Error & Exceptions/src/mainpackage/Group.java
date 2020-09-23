@@ -1,5 +1,7 @@
 package mainpackage;
 
+import subjects.Subjects;
+
 import java.util.List;
 
 public class Group {
@@ -47,7 +49,7 @@ public class Group {
         int markNumber = 0;
         for (Student student : listOfStudents) {
             if (student.studentHasSubject(subject)) {
-                markSumm += student.getSubjectMark(subject);
+                markSumm = markSumm + student.getSubjectMark(subject);
                 markNumber++;
             }
         }

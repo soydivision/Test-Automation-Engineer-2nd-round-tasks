@@ -57,7 +57,7 @@ public class Faculty {
             }
         }
         if (summOfMarks == 0 && groupHasSubject == 0)
-            throw new NoSubjectsException("No one at the faculty has this subject");
+            throw new NoSuchSubjectsException("No one at the faculty has this subject");
         return summOfMarks / groupHasSubject;
     }
 
