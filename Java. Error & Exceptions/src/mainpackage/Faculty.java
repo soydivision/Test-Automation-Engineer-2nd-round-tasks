@@ -1,7 +1,6 @@
 package mainpackage;
 
 import exceptions.*;
-import speciality.*;
 
 import java.util.List;
 
@@ -58,7 +57,7 @@ public class Faculty {
             }
         }
         if (summOfMarks == 0 && groupHasSubject == 0)
-            throw new StudentHasNoSubjectsException("No one at the faculty has this subject");
+            throw new NoSubjectsException("No one at the faculty has this subject");
         return summOfMarks / groupHasSubject;
     }
 

@@ -1,6 +1,6 @@
 package mainpackage;
 
-import exceptions.StudentHasNoSubjectsException;
+import exceptions.NoSubjectsException;
 import speciality.Speciality;
 import subjects.Subjects;
 
@@ -38,7 +38,7 @@ public class Student {
     }
 
     public void setSubjectScores(List<SubjectScore> subjectScores) {
-        //Exception
+        if (subjectScores.isEmpty()) throw new NoSubjectsException("This student has no subjects");
         this.subjectScores = subjectScores;
     }
 
@@ -74,7 +74,7 @@ public class Student {
 
     public int getSubjectMark(Enum<?> subject) {
         if (!studentHasSubject(subject)) {
-            throw new StudentHasNoSubjectsException();
+            throw new NoSubjectsException();
         }
         int score = 0;
         for (SubjectScore thisSubjectScore : subjectScores) {
