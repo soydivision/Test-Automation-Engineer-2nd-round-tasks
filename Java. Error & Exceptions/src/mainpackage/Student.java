@@ -1,16 +1,18 @@
 package mainpackage;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import exceptions.NoSubjectsException;
 import speciality.Speciality;
 import subjects.Subjects;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Student {
     private String name;
     private String surName;
-    private List<SubjectScore> subjectScores;
+    private List<SubjectMark> subjectMarks;
     private Speciality speciality;
 
     public Student(String name, String surName) {
@@ -22,7 +24,7 @@ public class Student {
         this.name = name;
         this.surName = surName;
         this.speciality = speciality;
-        subjectScores = coreCourse();
+        subjectMarks = coreCourse();
     }
 
     public String getName() {
@@ -33,13 +35,13 @@ public class Student {
         return surName;
     }
 
-    public List<SubjectScore> getSubjectScores() {
-        return subjectScores;
+    public List<SubjectMark> getSubjectMarks() {
+        return subjectMarks;
     }
 
-    public void setSubjectScores(List<SubjectScore> subjectScores) {
-        if (subjectScores.isEmpty()) throw new NoSubjectsException("This student has no subjects");
-        this.subjectScores = subjectScores;
+    public void setSubjectMarks(List<SubjectMark> subjectMarks) {
+        if (subjectMarks.isEmpty()) throw new NoSubjectsException("This student has no subjects");
+        this.subjectMarks = subjectMarks;
     }
 
     public Speciality getSpeciality() {
@@ -50,19 +52,21 @@ public class Student {
         this.speciality = speciality;
     }
 
-    public List<SubjectScore> coreCourse() {
-        List<SubjectScore> subjectScoresList = new ArrayList<>();
+    public List<SubjectMark> coreCourse() {
+        List<SubjectMark> subjectMarkList = new ArrayList<>();
         for (Subjects studentSubject : speciality.getCourse()) {
-            subjectScoresList.add(new SubjectScore(studentSubject, 7));
+            subjectMarkList.add(new SubjectMark(studentSubject, ThreadLocalRandom.current().nextInt(0, 5)));
         }
-        return subjectScoresList;
+        return subjectMarkList;
     }
 
-    public double getAverageScoreForAllSubjects() {
+    public double getAverageMarkForAllSubjects() {
         int sumOfMarks = 0;
-        int numberOfMarks = subjectScores.size();
-        for (SubjectScore subjectScore : subjectScores) {
-            sumOfMarks += subjectScore.getMark();
+        int numberOfMarks = subjectMarks.size();
+        System.out.println("numberOfMarks " + numberOfMarks);
+        for (SubjectMark subjectMark : subjectMarks) {
+            sumOfMarks += subjectMark.getMark();
+
         }
         return (double) sumOfMarks / numberOfMarks;
     }
@@ -76,14 +80,14 @@ public class Student {
         if (!studentHasSubject(subject)) {
             throw new NoSubjectsException();
         }
-        int score = 0;
-        for (SubjectScore thisSubjectScore : subjectScores) {
-            if (thisSubjectScore.getSubject() == subject) {
-                score = thisSubjectScore.getMark();
+        int mark = 0;
+        for (SubjectMark thisSubjectMark : subjectMarks) {
+            if (thisSubjectMark.getSubject() == subject) {
+                mark = thisSubjectMark.getMark();
                 break;
             }
         }
-        return score;
+        return mark;
     }
 
     @Override
