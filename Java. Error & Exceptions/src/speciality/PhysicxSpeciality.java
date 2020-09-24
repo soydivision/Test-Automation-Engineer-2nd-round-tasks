@@ -11,7 +11,8 @@ public class PhysicxSpeciality extends Speciality {
             Subjects.ENERGY_AND_WORK,
             Subjects.GRAVITY,
             Subjects.NEWTON_LAWS,
-            Subjects.KINEMATICS
+            Subjects.KINEMATICS,
+            Subjects.GENERAL_MATH
     );
 
     public PhysicxSpeciality() {

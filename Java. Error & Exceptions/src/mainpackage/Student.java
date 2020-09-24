@@ -54,7 +54,7 @@ public class Student {
     public List<SubjectMark> coreCourse() {
         List<SubjectMark> subjectMarkList = new ArrayList<>();
         for (Subjects studentSubject : speciality.getCourse()) {
-            subjectMarkList.add(new SubjectMark(studentSubject, ThreadLocalRandom.current().nextInt(0, 5)));
+            subjectMarkList.add(new SubjectMark(studentSubject, ThreadLocalRandom.current().nextInt(0, 10)));
         }
         return subjectMarkList;
     }

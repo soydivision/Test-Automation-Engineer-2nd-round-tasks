@@ -1,5 +1,7 @@
 package mainpackage;
 
+import exceptions.*;
+
 import java.util.List;
 
 public class University {
@@ -26,8 +28,22 @@ public class University {
         return faculties;
     }
 
-    public void setFaculties(List<Faculty> faculties) {
+    public void setFaculties(List<Faculty> faculties) throws EmptyUniversityException {
+        if (faculties.isEmpty()) throw new EmptyUniversityException("University has no faculties");
         this.faculties = faculties;
+    }
+
+    public double getAverageMarkForSubjectInUniversity(Enum<?> subject) {
+        double markSumm = 0;
+        int facultyHasSubject = 0;
+        for (Faculty faculty : faculties) {
+            if (faculty.facultyHasSubject(subject)) {
+                markSumm = markSumm + faculty.getAverageMarkForSubjectWithinFaculty(subject);
+                facultyHasSubject++;
+            }
+        }
+        if (markSumm == 0 && facultyHasSubject == 0) throw new NoSuchSubjectsException("Studens has no such subject");
+        return markSumm / facultyHasSubject;
     }
 
     @Override

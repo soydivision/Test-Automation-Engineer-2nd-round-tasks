@@ -20,11 +20,11 @@ public class Faculty {
         setGroupList(studentGroupList);
     }
 
-    public String getFacultyName() {
+    public String getName() {
         return name;
     }
 
-    public void setFacultyName(String facultyName) {
+    public void setName(String facultyName) {
         this.name = facultyName;
     }
 
