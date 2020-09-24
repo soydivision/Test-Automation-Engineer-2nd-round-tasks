@@ -1,10 +1,10 @@
-
-import subjects.*;
+import mainpackage.Faculty;
+import mainpackage.Group;
+import mainpackage.Student;
+import mainpackage.University;
 import speciality.*;
-import mainpackage.*;
+import subjects.Subjects;
 
-import javax.security.auth.Subject;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -43,7 +43,7 @@ public class Main {
         System.out.println("Math gr has kung fu " + math101_2020.groupHasSubject(Subjects.KUNG_FU));
         Subjects subjectToCheck = Subjects.KUNG_FU;
         System.out.print("For " + math101_2020.getName() + "group " + subjectToCheck.getName() + " subject,  average mark is: ");
-        System.out.print(math101_2020.getAverageMarkForSubject(Subjects.GENERAL_MATH));
+        System.out.println(math101_2020.getAverageMarkForSubject(Subjects.KUNG_FU));
         System.out.println("Hu has kung fu " + Hu.studentHasSubject(Subjects.KUNG_FU));
         System.out.println(Arrays.toString(Hu.getSubjectMarks().toArray()));
     }
