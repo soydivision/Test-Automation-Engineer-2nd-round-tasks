@@ -61,4 +61,27 @@ public class FolderProcessor {
         }
         return stringBuilder.toString();
     }
+
+    public static void addSomeSticks(File file) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(file.getPath() + File.separator + "filelist.txt"));
+        ArrayList<String> listOfLines = new ArrayList<>();
+//
+        String line = bufferedReader.readLine();
+        while (line != null) {
+            listOfLines.add(line);
+            line = bufferedReader.readLine();
+        }
+        for (int i = 0; i < listOfLines.size(); i++) {
+            if (listOfLines.get(i).contains("└───")) {
+//
+            }
+            bufferedReader.close();
+        }
+    }
+
+    public static String replaceCharUsingCharArray(String str, char ch, int index) {
+        char[] chars = str.toCharArray();
+        chars[index] = ch;
+        return String.valueOf(chars);
+    }
 }
