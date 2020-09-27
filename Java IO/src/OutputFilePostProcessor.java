@@ -18,21 +18,21 @@ public class OutputFilePostProcessor {
         }
         for (int i = 0; i < listOfLines.size(); i++) {
             int lastPlace = 0;
-            System.out.println("Line iterated number: " + i + " ,is " + listOfLines.get(i));
+//            System.out.println("Line iterated number: " + i + " ,is " + listOfLines.get(i));
             if (listOfLines.get(i).contains("└───")) {
-                System.out.println("Line contains └: " + listOfLines.get(i));
+//                System.out.println("Line contains └: " + listOfLines.get(i));
                 int outputter = i - 1;
-                System.out.println("int j = i-1: " + outputter);
+//                System.out.println("int j = i-1: " + outputter);
                 for (int j = i - 1; j > lastPlace; j--) {
-                    System.out.println("Small for cycle, j is " + j);
+//                    System.out.println("Small for cycle, j is " + j);
                     if (listOfLines.get(j).length() > listOfLines.get(i).indexOf("└")) {
                         char charAtIndex = listOfLines.get(j).charAt(listOfLines.get(i).indexOf("└"));
-                        System.out.println("charAtIndex in .get(j) is:" + charAtIndex);
+//                        System.out.println("charAtIndex in .get(j) is:" + charAtIndex);
                         if (charAtIndex == ' ') {
                             String temp = replaceChar(listOfLines.get(j), '|', listOfLines.get(i).indexOf("└"));
-                            System.out.println("temp is: " + temp);
+//                            System.out.println("temp is: " + temp);
                             listOfLines.set(j, temp);
-                            System.out.println("Swap string is:" + listOfLines.get(j));
+//                            System.out.println("Swap string is:" + listOfLines.get(j));
                         } else if (charAtIndex == '└') {
                             String temp = replaceChar(listOfLines.get(j), '├', listOfLines.get(i).indexOf("└"));
                             listOfLines.set(j, temp);
@@ -41,7 +41,7 @@ public class OutputFilePostProcessor {
                         }
                     }
                 }
-                System.out.println("lastplace is " + i);
+//                System.out.println("lastplace is " + i);
                 lastPlace = i;
             }
             bufferedReader.close();
