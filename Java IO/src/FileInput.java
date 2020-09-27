@@ -7,11 +7,12 @@ public class FileInput {
         if (file.isDirectory()) {
             FolderProcessor folderProcessor = new FolderProcessor();
             folderProcessor.listFilesTree(file, file);
-            OutputFilePostProcessor outputFilePostProcessor = new OutputFilePostProcessor();
+            OutputTextFilePostProcessor outputFilePostProcessor = new OutputTextFilePostProcessor();
             outputFilePostProcessor.addSomeSticks(file);
-        } else {
+        } else if (file.isFile()) {
             //Добавить проверку txt
-            System.out.println("need file processor");
+            TextFileInputProcessor textFileInputProcessor = new TextFileInputProcessor();
+            textFileInputProcessor.processTextFile(file);
         }
     }
 }

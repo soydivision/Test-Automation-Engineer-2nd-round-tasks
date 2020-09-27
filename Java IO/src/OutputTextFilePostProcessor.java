@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 
-public class OutputFilePostProcessor {
+public class OutputTextFilePostProcessor {
     public static void addSomeSticks(File file) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(file.getPath() + File.separator + "filelist.txt"));
         ArrayList<String> listOfLines = new ArrayList<>();
