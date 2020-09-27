@@ -14,12 +14,8 @@ public class FolderProcessor {
         }
         String space = generateFourSpaces(howDeepIsYourPath(directoryWithFiles, parent));
         if (howDeepIsYourPath(directoryWithFiles, parent) == 0) {
-//                System.out.println(directoryWithFiles.getName());
-//                bufferedWriter.write(directoryWithFiles.getName() + System.lineSeparator());
             appendToTextFile(outputFile, directoryWithFiles.getName() + System.lineSeparator());
         } else if (directoryWithFiles.isDirectory()) {
-//                System.out.println(space + "└───" + directoryWithFiles.getName());
-//                bufferedWriter.write(space + "└───" + directoryWithFiles.getName() + System.lineSeparator());
             appendToTextFile(outputFile, space + "└───" + directoryWithFiles.getName() + System.lineSeparator());
         }
         File[] content = directoryWithFiles.listFiles();
@@ -27,8 +23,6 @@ public class FolderProcessor {
         for (int i = 0; i < content.length; i++) {
             if (content[i].isFile()) {
                 String spaceForFiles = generateFourSpaces(howDeepIsYourPath(content[i], parent));
-//                    System.out.println(spaceForFiles + "    " + content[i].getName());
-//                    bufferedWriter.write(spaceForFiles + "    " + content[i].getName() + System.lineSeparator());
                 appendToTextFile(outputFile, spaceForFiles + "    " + content[i].getName() + System.lineSeparator());
             } else if (content[i].isDirectory()) {
                 folders.add(content[i]);
@@ -60,28 +54,5 @@ public class FolderProcessor {
             stringBuilder.append("    ");
         }
         return stringBuilder.toString();
-    }
-
-    public static void addSomeSticks(File file) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(file.getPath() + File.separator + "filelist.txt"));
-        ArrayList<String> listOfLines = new ArrayList<>();
-//
-        String line = bufferedReader.readLine();
-        while (line != null) {
-            listOfLines.add(line);
-            line = bufferedReader.readLine();
-        }
-        for (int i = 0; i < listOfLines.size(); i++) {
-            if (listOfLines.get(i).contains("└───")) {
-//
-            }
-            bufferedReader.close();
-        }
-    }
-
-    public static String replaceCharUsingCharArray(String str, char ch, int index) {
-        char[] chars = str.toCharArray();
-        chars[index] = ch;
-        return String.valueOf(chars);
     }
 }

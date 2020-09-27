@@ -7,7 +7,8 @@ public class FileInput {
         if (file.isDirectory()) {
             FolderProcessor folderProcessor = new FolderProcessor();
             folderProcessor.listFilesTree(file, file);
-            folderProcessor.addSomeSticks(file);
+            OutputFilePostProcessor outputFilePostProcessor = new OutputFilePostProcessor();
+            outputFilePostProcessor.addSomeSticks(file);
         } else {
             //Добавить проверку txt
             System.out.println("need file processor");
