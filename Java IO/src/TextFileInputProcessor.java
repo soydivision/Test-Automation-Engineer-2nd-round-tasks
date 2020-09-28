@@ -18,32 +18,19 @@ public class TextFileInputProcessor {
     }
 
     public static int countFolders(ArrayList listOfLines) {
-        int foldersCount = 0;
-        for (int i = 0; i < listOfLines.size(); i++) {
-//            if (listOfLines.get(i).toString().contains("|") && !listOfLines.get(i).toString().contains("├")) {
-//                continue;
-//            } else if (listOfLines.get(i).toString().contains("├") && !listOfLines.get(i).toString().contains("|")) {
-//                foldersCount++;
-//                System.out.println("pass " + listOfLines.get(i));
-//            } else if (listOfLines.get(i).toString().contains("└") && !listOfLines.get(i).toString().contains("|")) {
-//                foldersCount++;
-//                System.out.println("pass " + listOfLines.get(i));
-//            }
-            String stringToCheck = listOfLines.get(i).toString();
-            System.out.println("stringToCheck size " +stringToCheck.length());
-            char[] charArray = stringToCheck.toCharArray();
-            String stringWithChar = Character.toString(charArray[4]);
-            if (stringWithChar == "|" && stringWithChar != "├") {
+        int folderCount = 0;
+        for (int i = 1; i < listOfLines.size(); i++) {
+            char charCheck = listOfLines.get(i).toString().charAt(4);
+            String stringToCheck = String.valueOf(charCheck);
+            if (stringToCheck.equals("|")) {
                 continue;
-            } else if (stringWithChar == ("├") && stringWithChar != ("|")) {
-                foldersCount++;
-                System.out.println("pass " + listOfLines.get(i));
-            } else if (stringWithChar == "└" && stringWithChar != ("|")) {
-                foldersCount++;
-                System.out.println("pass " + listOfLines.get(i));
+            } else if (stringToCheck.equals("├")) {
+                folderCount++;
+            } else if (stringToCheck.equals("└")) {
+                folderCount++;
             }
         }
-        return foldersCount;
+        return folderCount;
     }
 
     public static int countFiles(ArrayList listOfLines) {
