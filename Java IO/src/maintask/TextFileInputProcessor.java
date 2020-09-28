@@ -1,4 +1,7 @@
+package maintask;
+
 import java.io.*;
+
 import java.util.ArrayList;
 
 public class TextFileInputProcessor {
