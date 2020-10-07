@@ -6,6 +6,7 @@ import subjects.Subjects;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Student {
@@ -54,9 +55,17 @@ public class Student {
     public List<SubjectMark> coreCourse() {
         List<SubjectMark> subjectMarkList = new ArrayList<>();
         for (Subjects studentSubject : speciality.getCourse()) {
-            subjectMarkList.add(new SubjectMark(studentSubject, ThreadLocalRandom.current().nextInt(0, 10)));
+            subjectMarkList.add(new SubjectMark(studentSubject, getRandomNumberInRange(4, 10)));
         }
         return subjectMarkList;
+    }
+
+    private static int getRandomNumberInRange(int min, int max) {
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
     }
 
     public double getAverageMarkForAllSubjects() {

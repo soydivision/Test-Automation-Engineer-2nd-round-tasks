@@ -9,7 +9,7 @@ public class Mark {
 
     public Mark(Enum subject, int mark) {
         this.subject = subject;
-        if (mark < 0 || mark > 5) throw new InvalidMarkException("Invalid mark: " + mark);
+        if (mark < 0 || mark > 10) throw new InvalidMarkException("Invalid mark: " + mark);
         this.mark = mark;
     }
 
