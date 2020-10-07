@@ -10,4 +10,7 @@ public class Port {
     public Port() {
         shipList = new ArrayList<>();
     }
+    //    add ship
+    //get : get ship from port to dock
 }
+

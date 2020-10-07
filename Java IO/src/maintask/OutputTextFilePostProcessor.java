@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 public class OutputTextFilePostProcessor {
     public static void addSomeSticks(File file) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(file.getPath() + File.separator + "filelist.txt"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(System.getProperty("user.dir") + File.separator + "filelist.txt"));
         ArrayList<String> listOfLines = new ArrayList<>();
-        File outputFileWithSticks = new File(file.getPath() + File.separator + "outputFileWithSticks.txt");
+        File outputFileWithSticks = new File(System.getProperty("user.dir") + File.separator + "outputFileWithSticks.txt");
         OutputStream outputStream = new FileOutputStream(outputFileWithSticks);
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
         BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
         bufferedWriter.write(file.getName() + System.lineSeparator());
-
+        File fileToRemove = new File(System.getProperty("user.dir") + File.separator + "filelist.txt");
         String line = bufferedReader.readLine();
         while (line != null) {
             listOfLines.add(line);
@@ -42,6 +42,7 @@ public class OutputTextFilePostProcessor {
         for (int i = 0; i < listOfLines.size(); i++) {
             appendToTextFile(outputFileWithSticks, listOfLines.get(i) + System.lineSeparator());
         }
+        fileToRemove.delete();
     }
 
     public static String replaceChar(String str, char ch, int index) {
@@ -50,9 +51,9 @@ public class OutputTextFilePostProcessor {
         return myString.toString();
     }
 
-    public static void appendToTextFile(File filelist, String stringToAppend) throws IOException {
+    public static void appendToTextFile(File fileTXT, String stringToAppend) throws IOException {
         Writer output;
-        output = new BufferedWriter(new FileWriter(filelist, true));
+        output = new BufferedWriter(new FileWriter(fileTXT, true));
         output.append(stringToAppend);
         output.close();
     }

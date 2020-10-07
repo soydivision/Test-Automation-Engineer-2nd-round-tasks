@@ -1,6 +1,5 @@
 package maintask;
 
-
 import java.io.File;
 import java.io.IOException;
 
@@ -13,7 +12,6 @@ public class FileInput {
             OutputTextFilePostProcessor outputFilePostProcessor = new OutputTextFilePostProcessor();
             outputFilePostProcessor.addSomeSticks(file);
         } else if (file.isFile()) {
-            //Добавить проверку txt
             TextFileInputProcessor textFileInputProcessor = new TextFileInputProcessor();
             textFileInputProcessor.processTextFile(file);
         }
