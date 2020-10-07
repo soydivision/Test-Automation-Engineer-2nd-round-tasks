@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class FolderProcessor {
     public static void listFilesTree(File directoryWithFiles, File parent) throws IOException {
         File workingDirectory = new File(System.getProperty("user.dir"));
-        File outputFile2 = new File(workingDirectory + File.separator + "filelist.txt");
+        File outputFile2 = new File(workingDirectory + File.separator + "TemporaryFileList.txt");
         if (!outputFile2.exists()) {
             OutputStream outputStream = new FileOutputStream(outputFile2);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);

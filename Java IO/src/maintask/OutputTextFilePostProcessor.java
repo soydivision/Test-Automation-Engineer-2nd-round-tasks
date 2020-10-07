@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 public class OutputTextFilePostProcessor {
     public static void addSomeSticks(File file) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(System.getProperty("user.dir") + File.separator + "filelist.txt"));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(System.getProperty("user.dir") + File.separator + "TemporaryFileList.txt"));
         ArrayList<String> listOfLines = new ArrayList<>();
-        File outputFileWithSticks = new File(System.getProperty("user.dir") + File.separator + "outputFileWithSticks.txt");
+        File outputFileWithSticks = new File(System.getProperty("user.dir") + File.separator + "FileList.txt");
         OutputStream outputStream = new FileOutputStream(outputFileWithSticks);
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
         BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
         bufferedWriter.write(file.getName() + System.lineSeparator());
-        File fileToRemove = new File(System.getProperty("user.dir") + File.separator + "filelist.txt");
+        File fileToRemove = new File(System.getProperty("user.dir") + File.separator + "TemporaryFileList.txt");
         String line = bufferedReader.readLine();
         while (line != null) {
             listOfLines.add(line);
