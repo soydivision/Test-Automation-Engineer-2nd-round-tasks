@@ -1,6 +1,9 @@
 package com.mycompany.io;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class TextFileInputProcessor {
@@ -12,38 +15,27 @@ public class TextFileInputProcessor {
             listOfLines.add(line);
             line = bufferedReader.readLine();
         }
-        System.out.println("В папке " + getFolderName(listOfLines) + " " + countFolders(listOfLines) + " папок," + " и " + countFiles(listOfLines) + " файлов.");
+        System.out.println("В папке " + getFolderName(listOfLines) + " " + countFoldersAndFiles(listOfLines)[0] + " папок," + " и " + countFoldersAndFiles(listOfLines)[1] + " файлов.");
     }
 
     public static String getFolderName(ArrayList listOfLines) {
         return listOfLines.get(0).toString();
     }
 
-    public static int countFolders(ArrayList listOfLines) {
+    public static int[] countFoldersAndFiles(ArrayList listOfLines) {
         int folderCount = 0;
+        int fileCount = 0;
         for (int i = 1; i < listOfLines.size(); i++) {
-            char charCheck = listOfLines.get(i).toString().charAt(4);
-            String stringToCheck = String.valueOf(charCheck);
-            if (stringToCheck.equals("|")) {
-                continue;
-            } else if (stringToCheck.equals("├")) {
+            String stringToCheck = listOfLines.get(i).toString();
+            if (stringToCheck.contains("├")) {
                 folderCount++;
-            } else if (stringToCheck.equals("└")) {
+            } else if (stringToCheck.contains("└")) {
                 folderCount++;
+            } else {
+                fileCount++;
             }
         }
-        return folderCount;
-    }
-
-    public static int countFiles(ArrayList listOfLines) {
-        int filesCount = 0;
-        for (int i = 1; i < listOfLines.size(); i++) {
-            if (listOfLines.get(i).toString().contains("|")) {
-                filesCount++;
-            } else if (listOfLines.get(i).toString().contains("├") || listOfLines.get(i).toString().contains("└")) {
-                break;
-            }
-        }
-        return filesCount;
+        int[] folderAndFileCounts = {folderCount, fileCount};
+        return folderAndFileCounts;
     }
 }
