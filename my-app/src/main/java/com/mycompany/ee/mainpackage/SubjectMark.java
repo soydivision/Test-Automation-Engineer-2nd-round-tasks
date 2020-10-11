@@ -1,6 +1,6 @@
-package mainpackage;
+package com.mycompany.ee.mainpackage;
 
-import exceptions.InvalidMarkException;
+import com.mycompany.ee.exceptions.InvalidMarkException;
 
 public class SubjectMark {
     private Enum subject;

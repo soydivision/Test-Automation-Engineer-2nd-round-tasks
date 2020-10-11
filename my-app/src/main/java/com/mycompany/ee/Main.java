@@ -1,6 +1,8 @@
-import mainpackage.*;
-import speciality.*;
-import subjects.Subjects;
+package com.mycompany.ee;
+
+import com.mycompany.ee.mainpackage.*;
+import com.mycompany.ee.speciality.*;
+import com.mycompany.ee.subjects.Subjects;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,13 +12,12 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Main {
     public static void main(String[] args) {
 //
-        SubjectMark primer = new SubjectMark(Subjects.GENERAL_CHEMISTRY, 11);
+        SubjectMark primer = new SubjectMark(Subjects.GENERAL_CHEMISTRY, 9);
         List subjectMarksForBenji = new ArrayList();
         subjectMarksForBenji.add(primer);
         Student benjamin = new Student("Benjamin", "Nataniahu", new FineArtsSpeciality());
         benjamin.setSubjectMarks(subjectMarksForBenji);
         System.out.println(benjamin.getSubjectMarks().toString());
-
         Student Hu = new Student("Hu", "Tzingtao", new MathSpeciality());
         Group math101_2020 = new Group("math101_2020", Arrays.asList(
                 new Student("Васька", "Пупкин", new MathSpeciality()),

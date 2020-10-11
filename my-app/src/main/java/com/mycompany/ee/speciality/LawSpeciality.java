@@ -1,11 +1,11 @@
-package speciality;
+package com.mycompany.ee.speciality;
 
-import subjects.*;
+import com.mycompany.ee.subjects.*;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static subjects.Subjects.LAW;
+import static com.mycompany.ee.subjects.Subjects.LAW;
 
 public class LawSpeciality extends Speciality {
     public static final String SPECIALITY = "law";
