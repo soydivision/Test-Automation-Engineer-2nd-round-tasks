@@ -15,20 +15,12 @@ public class Student {
     private String surName;
     private List<SubjectMark> subjectMarks;
     private Specialities specialities;
-    //private Speciality speciality;
     private EnumSet<Subjects> course;
 
     public Student(String name, String surName) {
         this.name = name;
         this.surName = surName;
     }
-
-//    public Student(String name, String surName, Speciality speciality) {
-//        this.name = name;
-//        this.surName = surName;
-//        this.speciality = speciality;
-//        subjectMarks = coreCourse();
-//    }
 
     public Student(String name, String surName, Specialities specialities) {
         this.name = name;
@@ -41,8 +33,6 @@ public class Student {
         this.surName = surName;
         this.specialities = specialities;
         this.subjectMarks = coreCourseForSet(mathCourse);
-        //this.course = mathCourse;
-        //  mathCourse=coreCourseForSet();
     }
 
     public String getName() {
@@ -61,22 +51,6 @@ public class Student {
         if (subjectMarks.isEmpty()) throw new NoSuchSubjectsException("This student has no subjects");
         this.subjectMarks = subjectMarks;
     }
-
-//    public Speciality getSpeciality() {
-//        return speciality;
-//    }
-
-//    public void setSpeciality(Speciality speciality) {
-//        this.speciality = speciality;
-//    }
-
-//    public List<SubjectMark> coreCourse() {
-//        List<SubjectMark> subjectMarkList = new ArrayList<>();
-//        for (Subjects studentSubject : speciality.getCourse()) {
-//            subjectMarkList.add(new SubjectMark(studentSubject, getRandomNumberInRange(4, 10)));
-//        }
-//        return subjectMarkList;
-//    }
 
     public List<SubjectMark> coreCourseForSet(EnumSet<Subjects> course) {
         List<SubjectMark> courseSetWithMarks = new ArrayList<>();
