@@ -1,5 +1,7 @@
 package com.mycompany.ee.subjects;
 
+import java.util.EnumSet;
+
 public enum Subjects {
     LAW("LAW"),
     MATH("MATH"),
@@ -29,8 +31,15 @@ public enum Subjects {
     OPTICS("OPTICS"),
     FLUID_DYNAMICS("FLUID_DYNAMICS"),
     KUNG_FU("KUNG_FU"),
-    CPLUSPLUS("C++");
+    CPLUSPLUS("C++"),
+    CALCULUS("Calculus");
     private String name;
+
+    public static final EnumSet<Subjects> MATH_COURSE = EnumSet.of(
+            Subjects.DIFF_GEOMETRY,
+            Subjects.GENERAL_MATH,
+            Subjects.CALCULUS
+    );
 
     Subjects(String name) {
         this.name = name;

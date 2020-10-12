@@ -1,10 +1,13 @@
 package com.mycompany.ee.mainpackage;
 
 import com.mycompany.ee.exceptions.NoSuchSubjectsException;
+import com.mycompany.ee.speciality.Specialities;
 import com.mycompany.ee.speciality.Speciality;
 import com.mycompany.ee.subjects.Subjects;
 
+import java.lang.constant.ConstantDesc;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Random;
 
@@ -12,7 +15,9 @@ public class Student {
     private String name;
     private String surName;
     private List<SubjectMark> subjectMarks;
+    private Specialities specialities;
     private Speciality speciality;
+    private EnumSet<Subjects> course;
 
     public Student(String name, String surName) {
         this.name = name;
@@ -24,6 +29,19 @@ public class Student {
         this.surName = surName;
         this.speciality = speciality;
         subjectMarks = coreCourse();
+    }
+
+    public Student(String name, String surName, Specialities specialities) {
+        this.name = name;
+        this.surName = surName;
+        this.specialities = specialities;
+    }
+
+    public Student(String name, String surName, Specialities specialities, EnumSet<Subjects> mathCourse) {
+        this.name = name;
+        this.surName = surName;
+        this.specialities = specialities;
+        this.course = mathCourse;
     }
 
     public String getName() {

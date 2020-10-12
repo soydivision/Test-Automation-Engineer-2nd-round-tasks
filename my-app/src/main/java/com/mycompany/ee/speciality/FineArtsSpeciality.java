@@ -21,3 +21,4 @@ public class FineArtsSpeciality extends Speciality {
         return fine_course;
     }
 }
+
