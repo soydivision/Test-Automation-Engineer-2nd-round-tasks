@@ -32,13 +32,43 @@ public enum Subjects {
     FLUID_DYNAMICS("FLUID_DYNAMICS"),
     KUNG_FU("KUNG_FU"),
     CPLUSPLUS("C++"),
-    CALCULUS("Calculus");
+    CALCULUS_ONE("CALCULUS-1"),
+    CALCULUS_TWO("CALCULUS-2");
     private String name;
 
-    public static final EnumSet<Subjects> MATH_COURSE = EnumSet.of(
+    public static final EnumSet<Subjects> MATH_COURSE_101 = EnumSet.of(
             Subjects.DIFF_GEOMETRY,
             Subjects.GENERAL_MATH,
-            Subjects.CALCULUS
+            Subjects.CALCULUS_ONE
+    );
+    public static final EnumSet<Subjects> MATH_COURSE_102 = EnumSet.of(
+            Subjects.DIFF_GEOMETRY,
+            Subjects.GENERAL_MATH,
+            Subjects.CALCULUS_TWO
+    );
+
+    public static final EnumSet<Subjects> PHYSICS_COURSE_101 = EnumSet.of(
+            Subjects.GENERAL_PHYSICS,
+            Subjects.KINEMATICS,
+            Subjects.CALCULUS_ONE
+    );
+
+    public static final EnumSet<Subjects> LAW_COURSE_101 = EnumSet.of(
+            Subjects.LAW_HISTORY,
+            Subjects.INTERNATIONAL_LAW,
+            Subjects.STATE_THEORY
+    );
+
+    public static final EnumSet<Subjects> FINE_ARTS_COURSE_101 = EnumSet.of(
+            Subjects.LAW_HISTORY,
+            Subjects.INTERNATIONAL_LAW,
+            Subjects.STATE_THEORY
+    );
+
+    public static final EnumSet<Subjects> ASTRONOMY_COURSE_101 = EnumSet.of(
+            Subjects.CALCULUS_ONE,
+            Subjects.INTERNATIONAL_LAW,
+            Subjects.STATE_THEORY
     );
 
     Subjects(String name) {

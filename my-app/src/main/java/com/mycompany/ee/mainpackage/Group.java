@@ -3,6 +3,7 @@ package com.mycompany.ee.mainpackage;
 import com.mycompany.ee.subjects.*;
 
 import java.util.List;
+import java.util.Random;
 
 public class Group {
     private String name;
@@ -32,6 +33,18 @@ public class Group {
         return listOfStudents;
     }
 
+    public Student getRandomStudent() {
+        return listOfStudents.get(getRandomNumberInRange(0, listOfStudents.size()-1));
+    }
+
+    private static int getRandomNumberInRange(int min, int max) {
+        if (min >= max) {
+            throw new IllegalArgumentException("max must be greater than min");
+        }
+        Random r = new Random();
+        return r.nextInt((max - min) + 1) + min;
+    }
+
     public void setListOfStudents(List<Student> listOfStudents) {
         this.listOfStudents = listOfStudents;
     }
@@ -47,6 +60,7 @@ public class Group {
     public double getAverageMarkForSubject(Enum<?> subject) {
         double markSumm = 0;
         int markNumber = 0;
+        List<Student> listOfStudents = getListOfStudents();
         for (Student student : listOfStudents) {
             if (student.studentHasSubject(subject)) {
                 markSumm = markSumm + student.getSubjectMark(subject);

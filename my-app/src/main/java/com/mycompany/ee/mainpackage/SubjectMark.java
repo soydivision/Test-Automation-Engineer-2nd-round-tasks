@@ -7,7 +7,7 @@ public class SubjectMark {
     private int mark;
 
     public SubjectMark(Enum subject, int mark) {
-        this.subject = subject;
+        setSubject(subject);
         setMark(mark);
     }
 
@@ -15,7 +15,7 @@ public class SubjectMark {
         return subject;
     }
 
-    public void setSubject() {
+    public void setSubject(Enum subject) {
         this.subject = subject;
     }
 

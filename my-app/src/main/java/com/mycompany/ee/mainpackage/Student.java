@@ -2,10 +2,9 @@ package com.mycompany.ee.mainpackage;
 
 import com.mycompany.ee.exceptions.NoSuchSubjectsException;
 import com.mycompany.ee.speciality.Specialities;
-import com.mycompany.ee.speciality.Speciality;
+//import com.mycompany.ee.speciality.Speciality;
 import com.mycompany.ee.subjects.Subjects;
 
-import java.lang.constant.ConstantDesc;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
@@ -16,7 +15,7 @@ public class Student {
     private String surName;
     private List<SubjectMark> subjectMarks;
     private Specialities specialities;
-    private Speciality speciality;
+    //private Speciality speciality;
     private EnumSet<Subjects> course;
 
     public Student(String name, String surName) {
@@ -24,12 +23,12 @@ public class Student {
         this.surName = surName;
     }
 
-    public Student(String name, String surName, Speciality speciality) {
-        this.name = name;
-        this.surName = surName;
-        this.speciality = speciality;
-        subjectMarks = coreCourse();
-    }
+//    public Student(String name, String surName, Speciality speciality) {
+//        this.name = name;
+//        this.surName = surName;
+//        this.speciality = speciality;
+//        subjectMarks = coreCourse();
+//    }
 
     public Student(String name, String surName, Specialities specialities) {
         this.name = name;
@@ -41,7 +40,9 @@ public class Student {
         this.name = name;
         this.surName = surName;
         this.specialities = specialities;
-        this.course = mathCourse;
+        this.subjectMarks = coreCourseForSet(mathCourse);
+        //this.course = mathCourse;
+        //  mathCourse=coreCourseForSet();
     }
 
     public String getName() {
@@ -61,20 +62,36 @@ public class Student {
         this.subjectMarks = subjectMarks;
     }
 
-    public Speciality getSpeciality() {
-        return speciality;
-    }
+//    public Speciality getSpeciality() {
+//        return speciality;
+//    }
 
-    public void setSpeciality(Speciality speciality) {
-        this.speciality = speciality;
-    }
+//    public void setSpeciality(Speciality speciality) {
+//        this.speciality = speciality;
+//    }
 
-    public List<SubjectMark> coreCourse() {
-        List<SubjectMark> subjectMarkList = new ArrayList<>();
-        for (Subjects studentSubject : speciality.getCourse()) {
-            subjectMarkList.add(new SubjectMark(studentSubject, getRandomNumberInRange(4, 10)));
+//    public List<SubjectMark> coreCourse() {
+//        List<SubjectMark> subjectMarkList = new ArrayList<>();
+//        for (Subjects studentSubject : speciality.getCourse()) {
+//            subjectMarkList.add(new SubjectMark(studentSubject, getRandomNumberInRange(4, 10)));
+//        }
+//        return subjectMarkList;
+//    }
+
+    public List<SubjectMark> coreCourseForSet(EnumSet<Subjects> course) {
+        List<SubjectMark> courseSetWithMarks = new ArrayList<>();
+        for (Subjects studentSubject : course) {
+            courseSetWithMarks.add(new SubjectMark(studentSubject, getRandomNumberInRange(4, 10)));
         }
-        return subjectMarkList;
+        return courseSetWithMarks;
+    }
+
+    public List<Enum> getStudentSubjects() {
+        List<Enum> subjectsList = new ArrayList<>();
+        for (SubjectMark subjectMark : subjectMarks) {
+            subjectsList.add(subjectMark.getSubject());
+        }
+        return subjectsList;
     }
 
     private static int getRandomNumberInRange(int min, int max) {
@@ -95,7 +112,7 @@ public class Student {
     }
 
     public boolean studentHasSubject(Enum<?> subject) {
-        List<Subjects> subjectsList = speciality.getCourse();
+        List<Enum> subjectsList = getStudentSubjects();
         return subjectsList.contains(subject);
     }
 

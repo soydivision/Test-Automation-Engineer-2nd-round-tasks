@@ -38,8 +38,13 @@ public class University {
         int facultyHasSubject = 0;
         for (Faculty faculty : faculties) {
             if (faculty.facultyHasSubject(subject)) {
+//                System.out.println(faculty.getName() + " has " + subject.name());
+//                System.out.println("markSumm before : " + markSumm);
+//                System.out.println("faculty.getAverageMarkForSubjectWithinFaculty(subject) in " + faculty.getName() + " is " + faculty.getAverageMarkForSubjectWithinFaculty(subject));
                 markSumm = markSumm + faculty.getAverageMarkForSubjectWithinFaculty(subject);
+//                System.out.println("markSumm after : " + markSumm);
                 facultyHasSubject++;
+//                System.out.println("facultyHasSubject: " + facultyHasSubject);
             }
         }
         if (markSumm == 0 && facultyHasSubject == 0) throw new NoSuchSubjectsException("Studens has no such subject");
