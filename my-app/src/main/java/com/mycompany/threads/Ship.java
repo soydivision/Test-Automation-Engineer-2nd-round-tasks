@@ -7,14 +7,14 @@ public class Ship {
     int containerLoadCapacity;
     int containersOnShip;
     String name;
-    String shipID;
+    String id;
 
     public Ship(int containerLoadCapacity, int containersOnShip) throws ArithmeticException {
         if (containerLoadCapacity < 0) throw new ArithmeticException();
         if (containersOnShip < 0) throw new ArithmeticException();
         this.containerLoadCapacity = containerLoadCapacity;
         this.containersOnShip = containersOnShip;
-        shipID = UUID.randomUUID().toString();
+        Id = UUID.randomUUID().toString();
         count++;
     }
 
@@ -25,6 +25,10 @@ public class Ship {
         this.name = name;
         this.containersOnShip = containersOnShip;
         count++;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public int getShipCount() {
