@@ -1,6 +1,6 @@
 package com.mycompany.threads;
 
-import ShipTypes.Type;
+import com.mycompany.threads.ShipTypes.Type;
 
 public class Dock implements Runnable {
     int loadSpeed;
