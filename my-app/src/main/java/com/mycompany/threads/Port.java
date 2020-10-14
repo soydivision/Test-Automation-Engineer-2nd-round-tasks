@@ -2,6 +2,7 @@ package com.mycompany.threads;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Port {
     int numberOfDocks;
@@ -22,7 +23,7 @@ public class Port {
             if (shipCount < maxShips) {
                 notifyAll();
                 shipList.add(ship);
-                String announcement = "Number of ships in port " + name + " right now: " + shipCount + ", New ship has arrived: " + ship.getId())
+                String announcement = "Number of ships in port " + name + " right now: " + shipCount + ", New ship has arrived: " + ship.getId();
                 System.out.println(announcement);
                 shipCount++;
             } else {
@@ -32,24 +33,25 @@ public class Port {
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } return true;
+        }
+        return true;
     }
 
     //get : get ship from port to dock
-    public synchronized Ship get(Ship ship) {
+    public synchronized Ship get() {
         try {
             if (shipCount > minShips) {
-                for (Ship shipInPort : shipList) {
-                    shipCount--;
-                    System.out.println("Port has " + shipCount + " ships");
-                    shipList.remove(shipInPort);
-                    System.out.println("Ship " + shipInPort.getId() + " has left port");
-                    System.out.println("Ship now is in: " + Thread.currentThread().getName());
-                    return ship;
-                }
-                System.out.println("Port is empty");
-                wait();
+                Random random = new Random();
+                Ship randomShip = shipList.get(random.nextInt(shipList.size()));
+                shipCount--;
+                System.out.println("Port has " + shipCount + " ships");
+                shipList.remove(randomShip);
+                System.out.println("Ship " + randomShip.getId() + " has left port");
+                System.out.println("Ship now is in: " + Thread.currentThread().getName());
+                return randomShip;
             }
+            System.out.println("Port is empty");
+            wait();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

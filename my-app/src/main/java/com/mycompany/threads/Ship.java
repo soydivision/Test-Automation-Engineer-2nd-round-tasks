@@ -3,7 +3,7 @@ package com.mycompany.threads;
 import java.util.UUID;
 
 public class Ship {
-    private static int count;
+    private static int shipCount;
     int containerLoadCapacity;
     int containersOnShip;
     String name;
@@ -14,8 +14,8 @@ public class Ship {
         if (containersOnShip < 0) throw new ArithmeticException();
         this.containerLoadCapacity = containerLoadCapacity;
         this.containersOnShip = containersOnShip;
-        Id = UUID.randomUUID().toString();
-        count++;
+        id = UUID.randomUUID().toString();
+        shipCount++;
     }
 
     public Ship(int containerLoadCapacity, int containersOnShip, String name) throws ArithmeticException {
@@ -24,15 +24,30 @@ public class Ship {
         this.containerLoadCapacity = containerLoadCapacity;
         this.name = name;
         this.containersOnShip = containersOnShip;
-        count++;
-    }
-
-    public String getId() {
-        return id;
+        shipCount++;
     }
 
     public int getShipCount() {
-        return count;
+        return shipCount;
+    }
+
+    public boolean checkShipAvailableSpace() {
+        if (containersOnShip > containerLoadCapacity) {
+            return false;
+        }
+        return true;
+    }
+
+    public void loadShip(int containers) {
+        this.containersOnShip += containers;
+    }
+
+    public void unloadShip(int containers) {
+        this.containersOnShip -= containers;
+    }
+
+    public String getId() {
+        return this.id;
     }
 }
 
