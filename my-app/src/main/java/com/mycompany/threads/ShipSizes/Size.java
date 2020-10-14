@@ -27,7 +27,7 @@ public enum Size {
         return VALUES.get(RANDOM.nextInt(SIZE));
     }
 
-    private int loadCapacity;
+    public int loadCapacity;
 
     public int getLoadCapacity() {
         return loadCapacity;

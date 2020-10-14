@@ -19,7 +19,9 @@ public class ShipGenerator implements Runnable {
         while (count < shipsToGenerate) {
             Thread.currentThread().setName("Ship generator");
             count++;
-            port.add(new Ship(100, 77));
+            Size randomSizeShipStorage = getRandomSizeShip();
+            int containersOnBoard = getRandomContainersOnBoard(randomSizeShipStorage.getLoadCapacity());
+            port.add(new Ship(randomSizeShipStorage, containersOnBoard));
         }
         try {
             Thread.sleep(1000);
@@ -27,11 +29,15 @@ public class ShipGenerator implements Runnable {
             e.printStackTrace();
         }
     }
-//    private Size getRandomSize() {
-//        Size randomShipSize = Size.getRandomShipSize();
-//        return randomShipSize.getLoadCapacity();
-//    }
-//    private Size getRandomContainersOnBoard() {
-//        Random random = new Random();
-//    }
+
+    private Size getRandomSizeShip() {
+        Size.getRandomShipSize();
+        return Size.getRandomShipSize();
+    }
+
+    private int getRandomContainersOnBoard(int maxNumberOfContainers) {
+        Random random = new Random();
+        int containersNumberOnBoard = random.nextInt(maxNumberOfContainers);
+        return containersNumberOnBoard;
+    }
 }

@@ -27,6 +27,8 @@ public class Port {
                 System.out.println("Number of ships in port " + name + " right now: " + shipCount);
                 System.out.println("Port " + name + ": New ship has arrived, unique id:");
                 System.out.println(ship.getId());
+                System.out.println("Storage capacity: " + ship.getContainerLoadCapacity());
+                System.out.println("Containers on ship: " + ship.getContainersOnShip());
                 System.out.println();
                 shipCount++;
             } else {
