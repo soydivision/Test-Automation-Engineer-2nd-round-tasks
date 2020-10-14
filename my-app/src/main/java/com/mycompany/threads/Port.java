@@ -71,6 +71,6 @@ public class Port {
             e.printStackTrace();
         }
         return null;
-        //drop ship if port is full
     }
+    //drop ship if port is full
 }
