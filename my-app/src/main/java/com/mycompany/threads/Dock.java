@@ -1,9 +1,5 @@
 package com.mycompany.threads;
 
-import com.mycompany.threads.ShipTypes.Type;
-
-import java.util.concurrent.ThreadLocalRandom;
-
 public class Dock implements Runnable {
     int loadSpeed;
     int unloadSpeed;
