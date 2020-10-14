@@ -9,7 +9,6 @@ public class Ship {
     String name;
     String id;
 
-
     public Ship(int containerLoadCapacity, int containersOnShip) throws ArithmeticException {
         if (containerLoadCapacity < 0) throw new ArithmeticException();
         if (containersOnShip < 0) throw new ArithmeticException();
@@ -46,6 +45,10 @@ public class Ship {
 
     public void unloadShip(int containers) {
         this.containersOnShip -= containers;
+    }
+
+    public int getContainersOnShip() {
+        return containersOnShip;
     }
 
     public String getId() {

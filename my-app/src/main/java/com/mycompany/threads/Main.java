@@ -9,7 +9,7 @@ public class Main {
         Ship axelMaersk = new Ship(5000, 2600, "Axel Maersk");
         axelMaersk.getId();
         Port Arturchik = new Port("Arturchik");
-        ShipGenerator generator = new ShipGenerator(Arturchik, 30);
+        ShipGenerator generator = new ShipGenerator(Arturchik, 10);
         Dock dock1 = new Dock(Arturchik, "dock speedy one", 50, 50);
         Dock dock2 = new Dock(Arturchik, "Slow dock", 20, 50);
         System.out.println(axelMaersk.getShipCount());

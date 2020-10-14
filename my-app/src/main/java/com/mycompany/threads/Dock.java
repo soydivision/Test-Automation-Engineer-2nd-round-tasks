@@ -17,14 +17,15 @@ public class Dock implements Runnable {
     public void run() {
         while (true) {
             try {
-                Thread.currentThread().setName(name + " is loading ");
+                Thread.currentThread().setName(name);
                 Thread.sleep(500);
                 Ship ship = port.get();
                 if (ship != null) {
                     while (ship.checkShipAvailableSpace()) {
                         Thread.sleep(100);
                         ship.loadShip(loadSpeed);
-                        System.out.println("Loading ship:" + ship.getId() + ", by" + Thread.currentThread().getName());
+                        System.out.println(Thread.currentThread().getName() + " is reporting, loading ship:" + ship.getId());
+                        System.out.println("Currently loaded: " + ship.getContainersOnShip());
                     }
                 }
             } catch (InterruptedException e) {
