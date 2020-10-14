@@ -7,11 +7,20 @@ import java.util.Random;
 public class Port {
     int numberOfDocks;
     int containerStorageCapacity = 1000;
+    public static int containers;
     List<Ship> shipList;
     public static final int maxShips = 30;
     public static final int minShips = 0;
     private int shipCount;
     String name;
+
+    public void addToStorage(int containersFromShip) {
+        containers = containers + containersFromShip;
+    }
+
+    public void removeFromStorage(int containersToShip) {
+        containers = containers - containersToShip;
+    }
 
     public Port(String name) {
         this.name = name;
