@@ -47,13 +47,14 @@ public class Port {
                 Random random = new Random();
                 Ship randomShip = shipList.get(random.nextInt(shipList.size()));
                 shipCount--;
-                System.out.println("Number of ships in port " + name + " right now: " + shipCount);
+                System.out.println("Number of ships in port " + this.name + " right now: " + shipCount);
                 shipList.remove(randomShip);
-                System.out.println("Ship " + randomShip.getId() + " has left port");
-                System.out.println("Ship now is in: " + Thread.currentThread().getName());
+                System.out.println("Ship " + randomShip.getId() + " has left port " + this.name);
+                System.out.println("Ship " + randomShip.getId() + " is now in: " + Thread.currentThread().getName());
                 return randomShip;
+            } else if (shipCount == minShips) {
+                System.out.println("Port is empty");
             }
-            System.out.println("Port is empty");
             wait();
         } catch (InterruptedException e) {
             e.printStackTrace();

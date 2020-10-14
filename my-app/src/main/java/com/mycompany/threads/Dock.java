@@ -24,8 +24,8 @@ public class Dock implements Runnable {
                     while (ship.checkShipAvailableSpace()) {
                         Thread.sleep(100);
                         ship.loadShip(loadSpeed);
-                        System.out.println(Thread.currentThread().getName() + " is reporting, loading ship:" + ship.getId());
-                        System.out.println("Currently loaded: " + ship.getContainersOnShip());
+                        System.out.println("'" + Thread.currentThread().getName() + "'" + " is reporting, loading ship: " + ship.getId());
+                        System.out.println("'" + Thread.currentThread().getName() + "':"+"Currently loaded: " + ship.getContainersOnShip());
                     }
                 }
             } catch (InterruptedException e) {
