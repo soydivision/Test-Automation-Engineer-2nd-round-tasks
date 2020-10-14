@@ -13,7 +13,8 @@ public class Port {
     private int shipCount;
     String name;
 
-    public Port() {
+    public Port(String name) {
+        this.name = name;
         shipList = new ArrayList<>();
     }
 
@@ -23,8 +24,8 @@ public class Port {
             if (shipCount < maxShips) {
                 notifyAll();
                 shipList.add(ship);
-                String announcement = "Number of ships in port " + name + " right now: " + shipCount + ", New ship has arrived: " + ship.getId();
-                System.out.println(announcement);
+                System.out.println("Number of ships in port " + name + " right now: " + shipCount);
+                System.out.println("Port " + name + ": New ship has arrived:" + ship.getId());
                 shipCount++;
             } else {
                 System.out.println("Port is full");

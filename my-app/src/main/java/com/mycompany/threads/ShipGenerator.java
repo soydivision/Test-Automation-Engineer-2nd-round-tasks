@@ -19,7 +19,7 @@ public class ShipGenerator implements Runnable {
         while (count < shipsToGenerate) {
             Thread.currentThread().setName("Ship generator");
             count++;
-            port.add(new Ship(500, 257));
+            port.add(new Ship(100, 77));
         }
         try {
             Thread.sleep(1000);
