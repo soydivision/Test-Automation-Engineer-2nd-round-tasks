@@ -23,7 +23,7 @@ public class Dock implements Runnable {
                 if (ship != null) {
                     while (ship.checkShipAvailableSpace()) {
                         Thread.sleep(100);
-                        ship.loadShip(10);
+                        ship.loadShip(loadSpeed);
                         System.out.println("Loading ship:" + ship.getId() + ", by" + Thread.currentThread().getName());
                     }
                 }
