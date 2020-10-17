@@ -14,7 +14,7 @@ public class Dock implements Runnable {
     }
 
     @Override
-    public synchronized void run() {
+    public void run() {
         while (true) {
             try {
                 Thread.currentThread().setName(name);

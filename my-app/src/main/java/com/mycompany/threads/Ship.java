@@ -33,7 +33,7 @@ public class Ship {
         this.containersOnShip += containers;
     }
 
-    public void unloadShip(int containers) {
+    public synchronized void unloadShip(int containers) {
         this.containersOnShip -= containers;
     }
 
