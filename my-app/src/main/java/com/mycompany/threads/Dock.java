@@ -3,6 +3,7 @@ package com.mycompany.threads;
 public class Dock implements Runnable {
     int loadSpeed;
     int unloadSpeed;
+    int currentShipContainers;
     private Port port;
     String name;
 
@@ -20,6 +21,8 @@ public class Dock implements Runnable {
                 Thread.currentThread().setName(name);
                 Thread.sleep(500);
                 Ship ship = port.get();
+                int containersToUnload = ship.getContainersOnShip();
+                System.out.println("Containers to unload :" + containersToUnload);
                 if (ship != null) {
                     while (ship.getContainersOnShip() > 0) {
                         Thread.sleep(100);

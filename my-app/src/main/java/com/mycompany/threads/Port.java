@@ -14,7 +14,7 @@ public class Port {
     private int shipCount;
     String name;
 
-    public void addToStorage(int containersFromShip) {
+    public synchronized void addToStorage(int containersFromShip) {
         containers = containers + containersFromShip;
     }
 
