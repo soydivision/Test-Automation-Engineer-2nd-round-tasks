@@ -24,23 +24,27 @@ public class Dock implements Runnable {
                 int containersToUnload = ship.getContainersOnShip();
                 System.out.println("Containers to unload :" + containersToUnload);
                 if (ship != null) {
-                    while (ship.getContainersOnShip() > 0) {
+                    while (containersToUnload > 0) {
                         Thread.sleep(100);
-                        if (ship.getContainersOnShip() - unloadSpeed > 0) {
+                        if (containersToUnload - unloadSpeed > 0) {
                             ship.unloadShip(unloadSpeed);
                             port.addToStorage(unloadSpeed);
+                            containersToUnload -= unloadSpeed;
                             System.out.println("'" + Thread.currentThread().getName() + "'" + " is reporting, unloading ship: " + ship.getId());
-                            System.out.println("'" + Thread.currentThread().getName() + "':" + "Currently left on ship: " + ship.getContainersOnShip());
+                            System.out.println("'" + Thread.currentThread().getName() + "':" + "Currently left on ship: " + containersToUnload);
                             System.out.println();
                             System.out.println("Containers stored in port, total:" + port.containers);
-                        } else {
-                            System.out.println("Small container number remains on ship" + ship.getId() + " : " + ship.getContainersOnShip());
+                        } else if (containersToUnload - unloadSpeed < 0) {
+                            System.out.println("Small container number remains on ship" + ship.getId() + " : " + containersToUnload);
                             System.out.println("'" + Thread.currentThread().getName() + "'" + " is reporting, unloading ship: " + ship.getId());
                             port.addToStorage(ship.getContainersOnShip());
                             ship.unloadShip(ship.getContainersOnShip());
+                            containersToUnload = containersToUnload - ship.getContainersOnShip();
                             System.out.println("Containers left on ship " + ship.getId() + " finally: " + ship.getContainersOnShip());
                             System.out.println("Containers stored in port,  total: " + port.containers);
                             System.out.println();
+                        } else if (containersToUnload == 0) {
+                            System.out.println("Ship " + ship.getId() + " is fully unloaded");
                         }
                     }
                 }
