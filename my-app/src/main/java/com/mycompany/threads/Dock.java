@@ -21,8 +21,8 @@ public class Dock implements Runnable {
                 Thread.currentThread().setName(name);
                 Thread.sleep(500);
                 Ship ship = port.get();
-                int containersToUnload = ship.getContainersOnShip();
                 if (ship != null) {
+                    int containersToUnload = ship.getContainersOnShip();
                     System.out.println("Containers to unload :" + containersToUnload);
                     while (containersToUnload > 0) {
                         Thread.sleep(100);

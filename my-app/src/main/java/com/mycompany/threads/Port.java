@@ -30,7 +30,6 @@ public class Port {
     public synchronized boolean add(Ship ship) {
         try {
             if (shipCount < maxShips) {
-                System.out.println("Number of ships in port " + name + " right now: " + shipCount);
                 notifyAll();
                 shipList.add(ship);
                 System.out.println("Port " + name + ": New ship has arrived, unique id:");
@@ -39,6 +38,8 @@ public class Port {
                 System.out.println("Containers on ship: " + ship.getContainersOnShip());
                 System.out.println();
                 shipCount++;
+                System.out.println("Number of ships in port " + name + " right now: " + shipCount);
+                System.out.println();
             } else {
                 System.out.println("Port is full");
                 wait();
