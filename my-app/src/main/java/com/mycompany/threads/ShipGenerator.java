@@ -21,6 +21,7 @@ public class ShipGenerator implements Runnable {
             count++;
             Size randomSizeShipStorage = getRandomSizeShip();
             int containersOnBoard = getRandomContainersOnBoard(randomSizeShipStorage.getLoadCapacity());
+            System.out.println(Thread.currentThread().getName() + " new ship generated, being added to port");
             port.add(new Ship(randomSizeShipStorage, containersOnBoard));
         }
         try {

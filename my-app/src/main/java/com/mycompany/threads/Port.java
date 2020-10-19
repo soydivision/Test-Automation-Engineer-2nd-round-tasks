@@ -9,7 +9,7 @@ public class Port {
     int containerStorageCapacity = 1000;
     public static int containers;
     List<Ship> shipList;
-    public static final int maxShips = 10;
+    public static final int maxShips = 5;
     public static final int minShips = 0;
     private int shipCount;
     String name;
