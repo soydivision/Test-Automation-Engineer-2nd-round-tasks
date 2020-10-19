@@ -6,9 +6,10 @@ import java.util.List;
 import java.util.Random;
 
 public enum Size {
-    SMALLFEEDER(1000);
-   // FEEDER(2000),
-   // FEEDERMAX(3000);
+    MICRO(100);
+    //SMALLFEEDER(1000),
+    // FEEDER(2000),
+    // FEEDERMAX(3000),
     //PANAMAX(4000),
     //POSTPANAMAX(5000),
     //NEWPANAMAX(10000),

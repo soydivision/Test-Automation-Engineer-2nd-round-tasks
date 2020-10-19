@@ -9,7 +9,7 @@ public class Port {
     int containerStorageCapacity = 1000;
     public static int containers;
     List<Ship> shipList;
-    public static final int maxShips = 30;
+    public static final int maxShips = 10;
     public static final int minShips = 0;
     private int shipCount;
     String name;
@@ -27,13 +27,12 @@ public class Port {
         shipList = new ArrayList<>();
     }
 
-    //    add ship
     public synchronized boolean add(Ship ship) {
         try {
             if (shipCount < maxShips) {
+                System.out.println("Number of ships in port " + name + " right now: " + shipCount);
                 notifyAll();
                 shipList.add(ship);
-                System.out.println("Number of ships in port " + name + " right now: " + shipCount);
                 System.out.println("Port " + name + ": New ship has arrived, unique id:");
                 System.out.println(ship.getId());
                 System.out.println("Storage capacity: " + ship.getContainerLoadCapacity());
@@ -51,7 +50,6 @@ public class Port {
         return true;
     }
 
-    //get : get ship from port to dock
     public synchronized Ship get() {
         try {
             if (shipCount > minShips) {
@@ -65,6 +63,7 @@ public class Port {
                 return randomShip;
             } else if (shipCount == minShips) {
                 System.out.println("Port is empty");
+                return null;
             }
             wait();
         } catch (InterruptedException e) {
@@ -73,5 +72,4 @@ public class Port {
         return null;
     }
     //drop ship if port is full
-
 }
