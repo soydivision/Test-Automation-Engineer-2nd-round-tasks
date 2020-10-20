@@ -10,6 +10,17 @@ public class Ship {
     int containerLoadCapacity;
     int containersOnShip;
     String id;
+    boolean shipUnloaded;
+    boolean shipLoaded;
+
+    public Ship(Size size, int containersOnShip, boolean shipUnloaded, boolean shipLoaded) {
+        containerLoadCapacity = size.getLoadCapacity();
+        this.containersOnShip = containersOnShip;
+        setShipUnloadedBoolean(shipUnloaded);
+        setShipLoadedBoolean(shipLoaded);
+        id = UUID.randomUUID().toString();
+        shipCount++;
+    }
 
     public Ship(Size size, int containersOnShip) {
         containerLoadCapacity = size.getLoadCapacity();
@@ -51,6 +62,22 @@ public class Ship {
 
     public Size getSize() {
         return size;
+    }
+
+    public void setShipUnloadedBoolean(boolean shipUnloaded) {
+        this.shipUnloaded = shipUnloaded;
+    }
+
+    public boolean ShipUnloaded() {
+        return shipUnloaded;
+    }
+
+    public void setShipLoadedBoolean(boolean shipLoaded) {
+        this.shipLoaded = shipLoaded;
+    }
+
+    public boolean ShipLoaded() {
+        return shipLoaded;
     }
 }
 

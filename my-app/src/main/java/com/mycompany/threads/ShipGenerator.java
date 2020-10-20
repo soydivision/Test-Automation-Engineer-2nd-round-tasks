@@ -20,10 +20,10 @@ public class ShipGenerator implements Runnable {
             Thread.currentThread().setName("Ship generator");
             count++;
             Size randomSizeShipStorage = getRandomSizeShip();
-            int containersOnBoard = getRandomContainersOnBoard(randomSizeShipStorage.getLoadCapacity());
-            //int containersOnBoard = 11; Тест для простоты.
+            //int containersOnBoard = getRandomContainersOnBoard(randomSizeShipStorage.getLoadCapacity());
+            int containersOnBoard = 11; //Тест для простоты.
             System.out.println(Thread.currentThread().getName() + " new ship generated, being added to port");
-            port.add(new Ship(randomSizeShipStorage, containersOnBoard));
+            port.add(new Ship(randomSizeShipStorage, containersOnBoard, false, false));
         }
         try {
             Thread.sleep(1000);

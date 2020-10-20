@@ -18,7 +18,7 @@ public class Port {
         containers = containers + containersFromShip;
     }
 
-    public void removeFromStorage(int containersToShip) {
+    public synchronized void removeFromStorage(int containersToShip) {
         containers = containers - containersToShip;
     }
 
@@ -73,5 +73,5 @@ public class Port {
         }
         return null;
     }
-    //drop ship if port is full
+
 }
