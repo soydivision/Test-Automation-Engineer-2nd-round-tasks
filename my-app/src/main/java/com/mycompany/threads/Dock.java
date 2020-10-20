@@ -21,7 +21,7 @@ public class Dock implements Runnable {
                 Thread.currentThread().setName(name);
                 Thread.sleep(500);
                 Ship ship = port.get();
-                if (ship != null) {
+                if (true) {
                     boolean shipUnloading = !ship.shipUnloaded;
                     int containersToUnload = ship.getContainersOnShip();
                     //Unloader part
@@ -52,31 +52,23 @@ public class Dock implements Runnable {
                     }
                     //Loader part
                     while (ship.ShipUnloaded() && !ship.ShipLoaded()) {
-                        Thread.sleep(100);
+                        int shipFreeContainerSpace = ship.getContainerLoadCapacity() - ship.getContainersOnShip();
                         if (port.containers == 0) {
-                            System.out.println("'" + Thread.currentThread().getName() + "': " + "Port containers storage is empty");
-                            ship.setShipLoadedBoolean(true);
+                            System.out.println("'" + Thread.currentThread().getName() + "':" + "Stock is empty");
+                            System.out.println("Ship left: " + ship.getId());
                             ship = null;
-                        } else if (ship.ShipLoaded()) {
-                            System.out.println("'" + Thread.currentThread().getName() + "': " + "Ship " + ship.getId() + " has been unloaded and loaded, left port");
-                            ship = null;
-                        } else {
-                            int containersToLoad = ship.getContainerLoadCapacity();
-                            System.out.println("'" + Thread.currentThread().getName() + "': " + "Containers on ship " + ship.getId() + ": " + ship.getContainersOnShip());
-                            System.out.println("'" + Thread.currentThread().getName() + "': " + "Containers to Load on ship " + ship.getId() + ": " + containersToLoad);
-                            if (ship.getContainersOnShip() == ship.getContainerLoadCapacity()) {
-                                System.out.println("'" + Thread.currentThread().getName() + "': " + "Ship fully loaded");
-                                System.out.println("'" + Thread.currentThread().getName() + "': " + "containers left in port storage: " + port.containers);
-                                ship.setShipLoadedBoolean(true);
-                            } else if (ship.getContainersOnShip() + loadSpeed <= ship.getContainerLoadCapacity()) {
-                                System.out.println("'" + Thread.currentThread().getName() + "': " + "Loading ship from dock " + ship.getId());
-                                ship.loadShip(loadSpeed);
-                                port.removeFromStorage(loadSpeed);
-                            } else if (ship.getContainersOnShip() + loadSpeed > ship.getContainerLoadCapacity()) {
-                                System.out.println("'" + Thread.currentThread().getName() + "': " + "Loading last containers on ship from dock " + ship.getId());
-                                ship.loadShip(ship.getContainerLoadCapacity() - ship.getContainersOnShip());
-                                port.removeFromStorage(ship.getContainerLoadCapacity() - ship.getContainersOnShip());
-                            }
+                        } else if (port.containers > loadSpeed && loadSpeed > shipFreeContainerSpace) {ship.loadShip(shipFreeContainerSpace);port.removeFromStorage(shipFreeContainerSpace);
+                            System.out.println("'" + Thread.currentThread().getName() + "':" + "Ship " + ship.getId() + " has loaded " + shipFreeContainerSpace + " containers" );ship = null;
+                        } else if (port.containers > loadSpeed && port.containers < shipFreeContainerSpace) {ship.loadShip(loadSpeed);port.removeFromStorage(loadSpeed);
+                            System.out.println("'" + Thread.currentThread().getName() + "':" + "Ship " + ship.getId() + " has loaded " + loadSpeed + " containers");
+                        } else if (port.containers > loadSpeed && loadSpeed < shipFreeContainerSpace) {ship.loadShip(loadSpeed);port.removeFromStorage(loadSpeed);
+                            System.out.println("'" + Thread.currentThread().getName() + "':" + "Ship " + ship.getId() + " has loaded " + loadSpeed + " containers");
+                        } else if (port.containers > shipFreeContainerSpace && loadSpeed > shipFreeContainerSpace) {ship.loadShip(shipFreeContainerSpace);port.removeFromStorage(shipFreeContainerSpace);
+                            System.out.println("'" + Thread.currentThread().getName() + "':" + "Ship " + ship.getId() + " has loaded " + shipFreeContainerSpace + " containers");ship = null;
+                        } else if (port.containers < loadSpeed && loadSpeed > shipFreeContainerSpace) {ship.loadShip(port.containers);port.removeFromStorage(port.containers);
+                            System.out.println("'" + Thread.currentThread().getName() + "':" + "Ship " + ship.getId() + " has loaded " + port.containers + " containers");ship = null;
+                        } else if (port.containers < loadSpeed && loadSpeed < shipFreeContainerSpace) {ship.loadShip(port.containers);port.removeFromStorage(port.containers);
+                            System.out.println("'" + Thread.currentThread().getName() + "':" + "Ship " + ship.getId() + " has loaded " + port.containers + " containers");ship = null;
                         }
                     }
                 }
