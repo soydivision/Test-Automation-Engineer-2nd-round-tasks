@@ -7,10 +7,10 @@ public class Main {
     public static void main(String[] args) {
         Port Arturchik = new Port("Arturchik");
         ShipGenerator generator = new ShipGenerator(Arturchik, 5);
-        Dock dock1 = new Dock(Arturchik, "Dock one", 50, 50);
-        Dock dock2 = new Dock(Arturchik, "Dock two", 50, 50);
-        Dock dock3 = new Dock(Arturchik, "Dock three", 50, 50);
-        Dock dock4 = new Dock(Arturchik, "Dock four", 50, 50);
+        Dock dock1 = new Dock(Arturchik, "Dock one", 25, 30);
+        Dock dock2 = new Dock(Arturchik, "Dock two", 25, 30);
+        Dock dock3 = new Dock(Arturchik, "Dock three", 25, 30);
+        Dock dock4 = new Dock(Arturchik, "Dock four", 25, 30);
         ExecutorService service = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         service.execute(generator);
         service.execute(dock1);

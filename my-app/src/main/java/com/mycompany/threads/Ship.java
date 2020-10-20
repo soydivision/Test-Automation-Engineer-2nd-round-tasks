@@ -40,7 +40,7 @@ public class Ship {
         return true;
     }
 
-    public void loadShip(int containers) {
+    public synchronized void loadShip(int containers) {
         this.containersOnShip += containers;
     }
 

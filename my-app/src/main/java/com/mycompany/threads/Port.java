@@ -74,4 +74,11 @@ public class Port {
         return null;
     }
 
+    public synchronized int getPortContainers() {
+        return containers;
+    }
+
+    public synchronized void setPortContainers(int containers) {
+        this.containers = containers;
+    }
 }
