@@ -16,11 +16,12 @@ public class ShipGenerator implements Runnable {
     @Override
     public void run() {
         int count = 0;
-        while (count < shipsToGenerate) {
+        while (count <= shipsToGenerate) {
             Thread.currentThread().setName("Ship generator");
             count++;
             Size randomSizeShipStorage = getRandomSizeShip();
             int containersOnBoard = getRandomContainersOnBoard(randomSizeShipStorage.getLoadCapacity());
+            //int containersOnBoard = 11; Тест для простоты.
             System.out.println(Thread.currentThread().getName() + " new ship generated, being added to port");
             port.add(new Ship(randomSizeShipStorage, containersOnBoard));
         }

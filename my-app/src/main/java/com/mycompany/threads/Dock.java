@@ -33,21 +33,21 @@ public class Dock implements Runnable {
                             containersToUnload -= unloadSpeed;
                             System.out.println("'" + Thread.currentThread().getName() + "'" + " is reporting, unloading ship: " + ship.getId());
                             System.out.println("'" + Thread.currentThread().getName() + "':" + "Currently,containers left on ship: " + containersToUnload);
-                            System.out.println("Containers stored in port, total:" + port.containers);
                             System.out.println();
-                        } else if (containersToUnload == 0) {
-                            System.out.println("Ship " + ship.getId() + " is fully unloaded");
                         } else if (containersToUnload != 0 && containersToUnload - unloadSpeed < 0) {
-                            System.out.println("Small container number remains on ship: " + ship.getId() + " : " + ship.getContainersOnShip());
+                            System.out.println("'" + Thread.currentThread().getName() + "':" + "Last containers left on ship: " + ship.getId() + " : " + ship.getContainersOnShip());
                             System.out.println("Containers to unload " + containersToUnload);
                             System.out.println("'" + Thread.currentThread().getName() + "'" + " is reporting, unloading ship: " + ship.getId());
                             port.addToStorage(ship.getContainersOnShip());
                             containersToUnload = containersToUnload - ship.getContainersOnShip();
                             ship.unloadShip(ship.getContainersOnShip());
-                            System.out.println("Containers left on ship " + ship.getId() + " finally: " + ship.getContainersOnShip());
-                            System.out.println("Containers stored in port,  total: " + port.containers);
+                            System.out.println("'" + Thread.currentThread().getName() + "':" + "Containers left on ship " + ship.getId() + " finally: " + ship.getContainersOnShip());
                             System.out.println();
+                            System.out.println("Containers stored in port,  total: " + port.containers);
                         }
+//                        else if (containersToUnload == 0) {
+//                            System.out.println("Ship " + ship.getId() + " is fully unloaded");
+//                        }
                     }
                 }
             } catch (InterruptedException e) {

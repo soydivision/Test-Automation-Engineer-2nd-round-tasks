@@ -63,6 +63,7 @@ public class Port {
                 System.out.println("Ship " + randomShip.getId() + " is now in: " + Thread.currentThread().getName());
                 return randomShip;
             } else if (shipCount == minShips) {
+                notifyAll();
                 System.out.println("Port is empty");
                 return null;
             }
