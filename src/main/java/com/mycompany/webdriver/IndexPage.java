@@ -1,8 +1,6 @@
 package com.mycompany.webdriver;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -24,6 +22,7 @@ public class IndexPage {
 
     public void openIndexPage() {
         driver.manage().timeouts().pageLoadTimeout(15, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
         driver.get("https://pastebin.com/");
     }
 
@@ -45,7 +44,8 @@ public class IndexPage {
         for (WebElement webElement : list) {
             String innerText = webElement.getAttribute("innerText");
             System.out.println(innerText);
-            if (innerText.equals("expiration")) {
+            if (innerText.equals(expiration)) {
+                System.out.println(innerText.equals(expiration));
                 element.click();
             }
         }
