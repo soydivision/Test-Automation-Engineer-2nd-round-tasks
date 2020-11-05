@@ -18,9 +18,9 @@ public class Main {
         driver.get("https://pastebin.com/");
         driver.manage().window().maximize();
         driver.findElement(By.xpath("//*[@id=\"postform-text\"]")).sendKeys("Hello from WD");
+        driver.findElement(By.xpath("//*[@id=\"postform-name\"]")).sendKeys("helloweb");
         WebElement element = driver.findElement(By.id("postform-expiration"));
         Select select = new Select(element);
-        String y = element.getAttribute("innerText");
         List<WebElement> list = select.getOptions();
         for (WebElement webElement : list) {
             String innerText = webElement.getAttribute("innerText");
@@ -29,5 +29,6 @@ public class Main {
                 element.click();
             }
         }
+
     }
 }
