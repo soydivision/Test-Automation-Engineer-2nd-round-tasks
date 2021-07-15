@@ -1,3 +1,3 @@
 # Java Tasks for:
-"Junior Test Automation Engineer in Java" ~ IO, Exceptions,Threads.
+"Junior Test Automation Engineer in Java" EPAM course ~ IO, Exceptions,Threads.
 
